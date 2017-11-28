@@ -1,12 +1,12 @@
 import React from "react";
 import axios from "axios";
-
+import { CountryDropdown } from 'react-country-region-selector';
 
 var countries = require('country-list')();
 
 
 class LandingPage extends React.Component {
-    constructor(){
+    constructor(props){
         super();
         this.state({
 
