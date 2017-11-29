@@ -7,44 +7,28 @@ export default class LandingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state={
-            country: '',
             cityInput: '',
-            catInput: ''
+            catInput: '',
+            country: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange= this.handleChange.bind(this);
     }
 
-    // method to take user input values and store in variable
-
-    // submit event handler
     handleSubmit(e) {
-        console.log("I am the handleSubmit")
-        e.preventDefault();
         this.setState({
-            country: this.state.country,
-            cityInput: this.state.countryInput,
-            catInput: this.state.catInput
-        });
+            cityInput: '',
+            catInput: '',
+        })
     }
 
-//yvonne code
     handleChange(e) {
-        // console.log(e.target.value)
-
         this.setState({
             [e.target.name]: e.target.value
         })
     }
 
-    selectCountry(val) {
-        this.setState({
-            country: val
-        });
-    }
-
     render() {
-        // what is this?
         const { country } = this.state;
         return (
             <div>
@@ -56,14 +40,21 @@ export default class LandingPage extends React.Component {
                     <form action="" className="user-form" onSubmit={this.handleSubmit}>
                         <ul>
                             <li>
-                                <select name="country-selector">
-                                    {CountriesArray.map((country, i)=> <option value={country.code} key={`country-${i}`}>{country.name}</option>)}
+                                <select name="country" onChange={this.handleChange}>
+                                    {CountriesArray.map((country, i)=> 
+                                        <option
+                                            value={country.code}
+                                            key={`country-${i}`}
+                                        >
+                                            {country.name}
+                                        </option>)
+                                    }
                                 </select>
                             </li>
                             <li>
                                 <input type="text"
-                                    name="city-input"
-                                    className="city-input"
+                                    name="cityInput"
+                                    className="cityInput"
                                     placeholder="City"
                                     onChange={this.handleChange}
                                     value={this.state.cityInput}
@@ -71,8 +62,8 @@ export default class LandingPage extends React.Component {
                             </li>
                             <li>
                                 <input type="text"
-                                    name="category-input"
-                                    className="category-input"
+                                    name="catInput"
+                                    className="catInput"
                                     placeholder="Category"
                                     onChange={this.handleChange}
                                     value={this.state.catInput} 
