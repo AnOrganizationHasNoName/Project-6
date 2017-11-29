@@ -21,8 +21,7 @@ export default class LandingPage extends React.Component {
     handleSubmit(e) {
         console.log("I am the handleSubmit")
         e.preventDefault();
-        // this.props.submitForm(this.state.currentItem);
-        // referencing a function where i'm calling and passing 
+      
         this.setState({
             
             
