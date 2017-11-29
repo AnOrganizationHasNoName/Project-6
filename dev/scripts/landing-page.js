@@ -12,6 +12,13 @@ export default class LandingPage extends React.Component {
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.state={
+            country: '',
+            cityInput: '',
+            catInput: ''
+        } 
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleChange= this.handleChange.bind(this);
     }
 
     // method to take user input values and store in variable
@@ -38,17 +45,48 @@ export default class LandingPage extends React.Component {
     selectCountry(val) {
         this.setState({
             country: val
+        }); 
+    } 
+
+//yvonne code
+    handleChange(e) {
+        console.log(e.target.value)
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }   
+    
+    selectCountry(val) {
+        this.setState({ 
+            country: val 
         });
     }
 
     render() {
         const { country } = this.state;
         return (
-            <div>
-                <div>
-                    <h1>MeetUp Page</h1>
+              <div>
+                  <div>
+                      <h1>MeetUp Page</h1>
+                  </div>
+ 
+                <div className="form-container">
+                    <form action="" className="user-form" onSubmit={this.handleSubmit}>
+                        <div>
+                            <CountryDropdown
+                                value={country} onChange={(val) => this.selectCountry(val)} labelType={"short"} onChange={this.handleChange} value={this.state.country} name="country"/>
+                        </div>
+                        <div>
+                            <input type="text" name="cityInput"className="city-input" placeholder="city" onChange={this.handleChange} value={this.state.cityInput}/>
+                        </div>
+                        <div>
+                            <input type="text" name="catInput" className="category-input" placeholder="category" onChange={this.handleChange} value={this.state.catInput} />
+                        </div>
+                        <div>
+                            <button onSubmit={this.handleSubmit}>Search</button>
+                        </div>
+                    </form>
                 </div>
-
                 <div className="form-container">
                     <form action="" className="user-form" onSubmit={this.handleSubmit}>
                         <div>
@@ -67,6 +105,7 @@ export default class LandingPage extends React.Component {
                     </form>
                 </div>
             </div>
+              </div>
         )
     }
 }
