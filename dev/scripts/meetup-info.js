@@ -1,5 +1,13 @@
 import React from 'react';
 
+
+// meetup group selection input
+// html to take input and button
+  
+//   < div > <Link to=””> </Link></div >
+//     method to take user input(handleChange for onClick)
+//   When the user clicks on the meetup event, send the request to Google Places API(longitude / latitude)
+
 export default class MeetupInfo extends React.Component {
   constructor() {
     super();

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Qs from 'qs';
 import MeetupInfo from './meetup-info';
-import LandingPage from './landing-page'
+import LandingPage from './landing-page';
 
 class App extends React.Component {
   constructor() {
