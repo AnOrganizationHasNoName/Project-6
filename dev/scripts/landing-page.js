@@ -1,37 +1,42 @@
 import React from "react";
 import axios from "axios";
-import { CountryDropdown } from 'react-country-region-selector';
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 
-var countries = require('country-list')();
-
-
-class LandingPage extends React.Component {
+export default class LandingPage extends React.Component {
     constructor(props){
-        super();
-        this.state({
-
-        })
+        super(props);
+        this.state={
+            country: ''
+        } 
+        this.userInputs = this.userInputs.bind(this)
     }
 
-    //method to take user inputs and store in variable
-    // userInputs (){
-    //     const cityInput = whatever user inputs
-    //     const CatInput = whatever user inputs 
+    // method to take user input values and store in variable
+    userInputs (){
+        const cityInput = this.state.city.val();
+        const CatInput = this.state.category.val();
     
-    // }
-    //submit event handler
-    // handleSubmit(e) {
-    //     console.log("I am the handleSubmit")
-    //     e.preventDefault();
-    //     // this.props.submitForm(this.state.currentItem);
-    //     // referencing a function where i'm calling and passing 
-    //     this.setState({
+    }
+    // submit event handler
+    handleSubmit(e) {
+        console.log("I am the handleSubmit")
+        e.preventDefault();
+        // this.props.submitForm(this.state.currentItem);
+        // referencing a function where i'm calling and passing 
+        this.setState({
             
             
-    //     }); 
-    // } 
+        }); 
+    } 
+
+//yvonne code
+    
+    selectCountry(val) {
+        this.setState({ country: val });
+    }
 
     render(){
+        const { country } = this.state;
         return (
             <div>
                 <div>
