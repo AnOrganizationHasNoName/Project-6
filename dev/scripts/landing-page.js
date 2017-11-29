@@ -5,11 +5,11 @@ import CountriesArray from './country-array';
 import Qs from 'qs';
 
 export default class LandingPage extends React.Component {
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = {
             cityInput: '',
-            categoryInput: '',
+            categoryInput: 1,
             country: '',
             meetupCategories: []
         }
