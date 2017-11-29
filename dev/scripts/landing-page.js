@@ -1,10 +1,16 @@
 import React from "react";
 import axios from "axios";
+<<<<<<< HEAD
 /* import { CountryDropdown, RegionDropdown } from 'react-country-region-selector'; */
+=======
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+import CountriesArray from './country-array';
+>>>>>>> 9833ee97905d575af1d2458e866dd32d8de0d161
 
 export default class LandingPage extends React.Component {
     constructor(props) {
         super(props);
+<<<<<<< HEAD
         this.state = {
             country: [],
             cityInput: '',
@@ -14,54 +20,41 @@ export default class LandingPage extends React.Component {
         this.handleChange = this.handleChange.bind(this);
         this.state={
             country: [],
+=======
+        this.state={
+>>>>>>> 9833ee97905d575af1d2458e866dd32d8de0d161
             cityInput: '',
-            catInput: ''
-        } 
+            catInput: '',
+            country: ''
+        }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange= this.handleChange.bind(this);
     }
 
-    // method to take user input values and store in variable
-
-    // submit event handler
     handleSubmit(e) {
-        console.log("I am the handleSubmit")
-        e.preventDefault();
         this.setState({
-            country: this.state.country,
-            cityInput: this.state.countryInput,
-            catInput: this.state.catInput
-        });
-    }
-
-    //yvonne code
-    handleChange(e) {
-        console.log(e.target.value)
-        this.setState({
-            [e.target.name]: e.target.value
+            cityInput: '',
+            catInput: '',
         })
     }
 
+<<<<<<< HEAD
 
 //yvonne code
 
 
+=======
+>>>>>>> 9833ee97905d575af1d2458e866dd32d8de0d161
     handleChange(e) {
-        console.log(e.target.value)
         this.setState({
             [e.target.name]: e.target.value
         })
-    }   
-    
-    selectCountry(val) {
-        this.setState({ 
-            country: val 
-        });
     }
 
     render() {
         const { country } = this.state;
         return (
+<<<<<<< HEAD
               <div>
                   <div>
                       <h1>MeetUp Page</h1>
@@ -96,6 +89,53 @@ export default class LandingPage extends React.Component {
                 </div>
             </div>
          
+=======
+            <div>
+                <div>
+                    <h1>MeetUp Page</h1>
+                </div>
+
+                <div className="form-container">
+                    <form action="" className="user-form" onSubmit={this.handleSubmit}>
+                        <ul>
+                            <li>
+                                <select name="country" onChange={this.handleChange}>
+                                    {CountriesArray.map((country, i)=> 
+                                        <option
+                                            value={country.code}
+                                            key={`country-${i}`}
+                                        >
+                                            {country.name}
+                                        </option>)
+                                    }
+                                </select>
+                            </li>
+                            <li>
+                                <input type="text"
+                                    name="cityInput"
+                                    className="cityInput"
+                                    placeholder="City"
+                                    onChange={this.handleChange}
+                                    value={this.state.cityInput}
+                                />
+                            </li>
+                            <li>
+                                <input type="text"
+                                    name="catInput"
+                                    className="catInput"
+                                    placeholder="Category"
+                                    onChange={this.handleChange}
+                                    value={this.state.catInput} 
+                                />
+                            </li>
+                            <li>
+                                <button onSubmit={this.handleSubmit}>Search</button>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+              </div>
+>>>>>>> 9833ee97905d575af1d2458e866dd32d8de0d161
         )
     }
 }
