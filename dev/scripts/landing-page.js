@@ -1,17 +1,18 @@
 import React from "react";
 import axios from "axios";
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+import CountriesArray from './country-array';
 
 export default class LandingPage extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {
+        this.state={
             country: '',
             cityInput: '',
             catInput: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
+        this.handleChange= this.handleChange.bind(this);
     }
 
     // method to take user input values and store in variable
@@ -27,9 +28,10 @@ export default class LandingPage extends React.Component {
         });
     }
 
-    //yvonne code
+//yvonne code
     handleChange(e) {
-        console.log(e.target.value)
+        // console.log(e.target.value)
+
         this.setState({
             [e.target.name]: e.target.value
         })
@@ -42,6 +44,7 @@ export default class LandingPage extends React.Component {
     }
 
     render() {
+        // what is this?
         const { country } = this.state;
         return (
             <div>
@@ -51,22 +54,37 @@ export default class LandingPage extends React.Component {
 
                 <div className="form-container">
                     <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                        <div>
-                            <CountryDropdown
-                                value={country} onChange={(val) => this.selectCountry(val)} labelType={"short"} onChange={this.handleChange} value={this.state.country} name="country" />
-                        </div>
-                        <div>
-                            <input type="text" name="cityInput" className="city-input" placeholder="city" onChange={this.handleChange} value={this.state.cityInput} />
-                        </div>
-                        <div>
-                            <input type="text" name="catInput" className="category-input" placeholder="category" onChange={this.handleChange} value={this.state.catInput} />
-                        </div>
-                        <div>
-                            <button onSubmit={this.handleSubmit}>Search</button>
-                        </div>
+                        <ul>
+                            <li>
+                                <select name="country-selector">
+                                    {CountriesArray.map((country, i)=> <option value={country.code} key={`country-${i}`}>{country.name}</option>)}
+                                </select>
+                            </li>
+                            <li>
+                                <input type="text"
+                                    name="city-input"
+                                    className="city-input"
+                                    placeholder="City"
+                                    onChange={this.handleChange}
+                                    value={this.state.cityInput}
+                                />
+                            </li>
+                            <li>
+                                <input type="text"
+                                    name="category-input"
+                                    className="category-input"
+                                    placeholder="Category"
+                                    onChange={this.handleChange}
+                                    value={this.state.catInput} 
+                                />
+                            </li>
+                            <li>
+                                <button onSubmit={this.handleSubmit}>Search</button>
+                            </li>
+                        </ul>
                     </form>
                 </div>
-            </div>
+              </div>
         )
     }
 }
