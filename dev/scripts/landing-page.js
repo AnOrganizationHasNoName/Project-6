@@ -17,11 +17,15 @@ export default class LandingPage extends React.Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        //creating formSubmit props (passing getMeetups function on app.js)
         this.props.formSubmit(this.state.cityInput, this.state.country, this.state.catInput);
+//passing in STATE whenever the user changes a value
+
         this.setState({
             cityInput: '',
             catInput: '',
             country: ''
+            //this.setState will be made redundent when we put in routing
         })
     }
 
