@@ -1,19 +1,19 @@
 import React from "react";
 import axios from "axios";
-import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+/* import { CountryDropdown, RegionDropdown } from 'react-country-region-selector'; */
 
 export default class LandingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            country: '',
+            country: [],
             cityInput: '',
             catInput: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.state={
-            country: '',
+            country: [],
             cityInput: '',
             catInput: ''
         } 
@@ -42,13 +42,10 @@ export default class LandingPage extends React.Component {
         })
     }
 
-    selectCountry(val) {
-        this.setState({
-            country: val
-        }); 
-    } 
 
 //yvonne code
+
+
     handleChange(e) {
         console.log(e.target.value)
         this.setState({
@@ -73,25 +70,18 @@ export default class LandingPage extends React.Component {
                 <div className="form-container">
                     <form action="" className="user-form" onSubmit={this.handleSubmit}>
                         <div>
-                            <CountryDropdown
-                                value={country} onChange={(val) => this.selectCountry(val)} labelType={"short"} onChange={this.handleChange} value={this.state.country} name="country"/>
-                        </div>
-                        <div>
-                            <input type="text" name="cityInput"className="city-input" placeholder="city" onChange={this.handleChange} value={this.state.cityInput}/>
-                        </div>
-                        <div>
-                            <input type="text" name="catInput" className="category-input" placeholder="category" onChange={this.handleChange} value={this.state.catInput} />
-                        </div>
-                        <div>
-                            <button onSubmit={this.handleSubmit}>Search</button>
-                        </div>
-                    </form>
-                </div>
-                <div className="form-container">
-                    <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                        <div>
-                            <CountryDropdown
-                                value={country} onChange={(val) => this.selectCountry(val)} labelType={"short"} onChange={this.handleChange} value={this.state.country} name="country" />
+                           {/*  <CountryDropdown
+                                value={country} onChange={(val) => this.selectCountry(val)} labelType={"short"} onChange={this.handleChange} value={this.state.country} name="country"  */}
+                            <select name="country-dropdown" id="">
+                                {CountryArray.map((country, i)=>{ {
+                                    return (
+                                        <div>
+                                            <label htmlFor={i}>{country[i].name}</label>
+                                        <option id={i} value={country[i].code}>{country[i].name}</option>
+                                        </div>
+                                    )}
+                                })}
+                            </select>
                         </div>
                         <div>
                             <input type="text" name="cityInput" className="city-input" placeholder="city" onChange={this.handleChange} value={this.state.cityInput} />
@@ -105,7 +95,7 @@ export default class LandingPage extends React.Component {
                     </form>
                 </div>
             </div>
-              </div>
+         
         )
     }
 }
@@ -115,3 +105,9 @@ export default class LandingPage extends React.Component {
 // html structure to take button(E)
 // method to take user input on submit / click
 // Store user inputs as parameters / variables to use in ajax request
+
+// copy and paste the object into a new file
+// on landing page, repalce CountryDropDown with a select element, with the array and map() country argument
+// for each of these, you are returning option elements
+// with the value equal to value={country.code}
+// label={country.name}
