@@ -1,28 +1,12 @@
 import React from "react";
 import axios from "axios";
-<<<<<<< HEAD
-/* import { CountryDropdown, RegionDropdown } from 'react-country-region-selector'; */
-=======
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import CountriesArray from './country-array';
->>>>>>> 9833ee97905d575af1d2458e866dd32d8de0d161
 
 export default class LandingPage extends React.Component {
     constructor(props) {
         super(props);
-<<<<<<< HEAD
-        this.state = {
-            country: [],
-            cityInput: '',
-            catInput: ''
-        }
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleChange = this.handleChange.bind(this);
         this.state={
-            country: [],
-=======
-        this.state={
->>>>>>> 9833ee97905d575af1d2458e866dd32d8de0d161
             cityInput: '',
             catInput: '',
             country: ''
@@ -38,13 +22,6 @@ export default class LandingPage extends React.Component {
         })
     }
 
-<<<<<<< HEAD
-
-//yvonne code
-
-
-=======
->>>>>>> 9833ee97905d575af1d2458e866dd32d8de0d161
     handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value
@@ -54,42 +31,6 @@ export default class LandingPage extends React.Component {
     render() {
         const { country } = this.state;
         return (
-<<<<<<< HEAD
-              <div>
-                  <div>
-                      <h1>MeetUp Page</h1>
-                  </div>
- 
-                <div className="form-container">
-                    <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                        <div>
-                           {/*  <CountryDropdown
-                                value={country} onChange={(val) => this.selectCountry(val)} labelType={"short"} onChange={this.handleChange} value={this.state.country} name="country"  */}
-                            <select name="country-dropdown" id="">
-                                {CountryArray.map((country, i)=>{ {
-                                    return (
-                                        <div>
-                                            <label htmlFor={i}>{country[i].name}</label>
-                                        <option id={i} value={country[i].code}>{country[i].name}</option>
-                                        </div>
-                                    )}
-                                })}
-                            </select>
-                        </div>
-                        <div>
-                            <input type="text" name="cityInput" className="city-input" placeholder="city" onChange={this.handleChange} value={this.state.cityInput} />
-                        </div>
-                        <div>
-                            <input type="text" name="catInput" className="category-input" placeholder="category" onChange={this.handleChange} value={this.state.catInput} />
-                        </div>
-                        <div>
-                            <button onSubmit={this.handleSubmit}>Search</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-         
-=======
             <div>
                 <div>
                     <h1>MeetUp Page</h1>
@@ -135,7 +76,6 @@ export default class LandingPage extends React.Component {
                     </form>
                 </div>
               </div>
->>>>>>> 9833ee97905d575af1d2458e866dd32d8de0d161
         )
     }
 }
