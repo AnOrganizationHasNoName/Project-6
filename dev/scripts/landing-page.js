@@ -9,7 +9,7 @@ export default class LandingPage extends React.Component {
         super(props);
         this.state = {
             cityInput: '',
-            categoryInput: '',
+            categoryInput: 1,
             country: '',
             meetupCategories: []
         }

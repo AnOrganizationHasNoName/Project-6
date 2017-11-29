@@ -17,7 +17,7 @@ class App extends React.Component {
     }
   }
 
-  //instead of the componentDidMount, the getMeetups functino will take the user values
+  //instead of the componentDidMount, the getMeetups function will take the user values
   //passing in city, country, category args to use as params(placeholders)
  
   getMeetups(city, country, category) {
@@ -44,10 +44,7 @@ class App extends React.Component {
     }).then((res) => {
       const meetups = res.data.results.filter(meetup => meetup.venue !== undefined);
     
-      // const latitude = .group
-      // console.log(latitude)
-      // const latitude = res.data.group.group_lat;
-     
+      
       this.setState({
         meetups
         
@@ -91,6 +88,7 @@ class App extends React.Component {
         <LandingPage formSubmit={this.getMeetups} />
         {this.state.meetups.map((meetup, i) => {
           return <MeetupInfo key={`meetup-${i}`} data={meetup} lat={meetup.venue.lat} lon={meetup.venue.lon}/>
+         
         })}
       </div>
     )
