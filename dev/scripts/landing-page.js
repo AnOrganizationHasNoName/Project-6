@@ -19,10 +19,7 @@ export default class LandingPage extends React.Component {
     handleSubmit(e) {
         console.log("I am the handleSubmit")
         e.preventDefault();
-<<<<<<< HEAD
       
-=======
->>>>>>> 7f6ab8a791f4933e25af1599ef619d508d160009
         this.setState({
             country: e.target.value,
             cityInput: e.target.value,
