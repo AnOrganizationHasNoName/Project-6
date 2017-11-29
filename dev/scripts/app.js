@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Qs from 'qs';
-// import LandingPage from './landing-page'
+import MeetupInfo from './meetup-info';
+import LandingPage from './landing-page'
 
 class App extends React.Component {
   constructor() {
@@ -37,39 +38,15 @@ class App extends React.Component {
       this.setState({
         meetups
       })
-      // res.data.results.map((meetup, i)=>{
-      //   console.log(`${meetup.venue}${i}`);
-      // })
     });
   }
   render() {
     return (
       <div>
-        {/* <LandingPage /> */}
+        <LandingPage />
         {this.state.meetups.map((meetup, i)=>{
           return <MeetupInfo key={`meetup-${i}`} data={meetup}/>
         })}
-      </div>
-    )
-  }
-}
-class MeetupInfo extends React.Component {
-  constructor() {
-    super();
-  }
-  render() {
-    return(
-      <div>
-        <h2>{this.props.data.name}</h2>
-        <ul>
-          <li>
-            <p>Venue: {this.props.data.venue.name}</p>
-            <p>Address: {this.props.data.venue.address_1}</p>
-          </li>
-        </ul>
-        <button>
-          <a href={this.props.data.event_url}>More Info</a>
-        </button>
       </div>
     )
   }
