@@ -27,7 +27,7 @@ class App extends React.Component {
           key: '6a49717012332a5d284f3c775460653',
           city: city,
           country: country,
-          text: category,
+          category: category,
         },
         proxyHeaders: {
           'header_params': 'value'
