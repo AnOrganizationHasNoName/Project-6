@@ -72,10 +72,3 @@ export default class LandingPage extends React.Component {
     }
 }
 
-// html structure to take inputs(E) city, category
-// Method to take hard - coded inputs and store in variable / state
-// html structure to take button(E)
-// method to take user input on submit / click
-// Store user inputs as parameters / variables to use in ajax request
-
-
