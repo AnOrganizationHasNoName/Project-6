@@ -4,7 +4,6 @@ import { CountryDropdown } from 'react-country-region-selector';
 
 var countries = require('country-list')();
 
-
 class LandingPage extends React.Component {
     constructor(props){
         super();
@@ -31,4 +30,6 @@ class LandingPage extends React.Component {
         )
     }
 }
+
+export default LandingPage;
 
