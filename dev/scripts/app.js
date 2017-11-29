@@ -1,16 +1,55 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import LandingPage from "./landing-page";
+import axios from 'axios';
+import Qs from 'qs';
+import MeetupInfo from './meetup-info';
+import LandingPage from './landing-page'
 
 class App extends React.Component {
-    render() {
-      return (
-        <div>
-          Hello
-          <LandingPage />
-        </div>
-      )
+  constructor() {
+    super();
+    this.state = {
+      meetups: [],
     }
+  }
+  componentDidMount() {
+    axios({
+      method: 'GET',
+      url: 'http://proxy.hackeryou.com',
+      dataResponse: 'json',
+      paramsSerializer: function (params) {
+        return Qs.stringify(params, { arrayFormat: 'brackets' })
+      },
+      params: {
+        reqUrl: 'https://api.meetup.com/2/open_events',
+        params: {
+          key: '6a49717012332a5d284f3c775460653',
+          city: 'Toronto',
+          country: 'Canada',
+          text: 'tech'
+        },
+        proxyHeaders: {
+          'header_params': 'value'
+        },
+        xmlToJSON: false
+      }
+    }).then((res) => {
+      const meetups = res.data.results.filter(meetup => meetup.venue !== undefined);
+      this.setState({
+        meetups
+      })
+    });
+  }
+  render() {
+    return (
+      <div>
+        <LandingPage />
+        {this.state.meetups.map((meetup, i)=>{
+          return <MeetupInfo key={`meetup-${i}`} data={meetup}/>
+        })}
+      </div>
+    )
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
