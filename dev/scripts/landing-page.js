@@ -94,20 +94,4 @@ export default class LandingPage extends React.Component {
             </form>
         )
     }
-<<<<<<< HEAD
 }
-
-// html structure to take inputs(E) city, category
-// Method to take hard - coded inputs and store in variable / state
-// html structure to take button(E)
-// method to take user input on submit / click
-// Store user inputs as parameters / variables to use in ajax request
-
-// copy and paste the object into a new file
-// on landing page, repalce CountryDropDown with a select element, with the array and map() country argument
-// for each of these, you are returning option elements
-// with the value equal to value={country.code}
-// label={country.name}
-=======
-}
->>>>>>> 29d6ecabb0ce88d7df453b1bbc9d053027bc15df
