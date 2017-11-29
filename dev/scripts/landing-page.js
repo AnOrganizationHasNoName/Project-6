@@ -6,26 +6,23 @@ export default class LandingPage extends React.Component {
     constructor(props){
         super(props);
         this.state={
-            country: ''
+            country: '',
+            cityInput: '',
+            CatInput: ''
         } 
-        this.userInputs = this.userInputs.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     // method to take user input values and store in variable
-    userInputs (){
-        const cityInput = this.state.city.val();
-        const CatInput = this.state.category.val();
-    
-    }
+
     // submit event handler
     handleSubmit(e) {
         console.log("I am the handleSubmit")
         e.preventDefault();
-        // this.props.submitForm(this.state.currentItem);
-        // referencing a function where i'm calling and passing 
         this.setState({
-            
-            
+            country: e.target.value,
+            cityInput: e.target.value,
+            CatInput: e.target.value
         }); 
     } 
 
@@ -38,24 +35,29 @@ export default class LandingPage extends React.Component {
     render(){
         const { country } = this.state;
         return (
-            <div>
-                <div>
-                    <h1>MeetUp Page</h1>
+              <div>
+                  <div>
+                      <h1>MeetUp Page</h1>
+                  </div>
+ 
+                <div className="form-container">
+                    <form action="" className="user-form" onSubmit={this.handleSubmit}>
+                        <div>
+                            <CountryDropdown
+                                value={country} onChange={(val) => this.selectCountry(val)} labelType={"short"} />
+                        </div>
+                        <div>
+                            <input type="text" className="city-input" placeholder="city" />
+                        </div>
+                        <div>
+                            <input type="text" className="category-input" placeholder="category" />
+                        </div>
+                        <div>
+                            <button onSubmit={this.handleSubmit}>Search</button>
+                        </div>
+                    </form>
                 </div>
-                <div className="userInput">
-                    <input type="text" className= 'cityInput' placeholder='city' onSubmit= {this.handleSubmit} />
-                    <button onSubmit={this.handleSubmit}>City</button>
-
-                    <input type="text" className= 'categoryInput' placeholder = 'category'/>
-                    <button onSubmit={this.handleSubmit}>Category</button>
-                </div>
-
-                <select name="country-code">
-                    <option value=""></option>
-                </select>
-                <input type="text" className="city-input"/>
-                <button>Search</button>
-            </div>
+              </div>
         )
     }
 }
