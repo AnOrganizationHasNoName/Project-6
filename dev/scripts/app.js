@@ -44,7 +44,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <LandingPage formSubmit={this.getMeetups}/>
+        <LandingPage formSubmit={this.getMeetups} onClick={this.getRes}/>
         {this.state.meetups.map((meetup, i)=>{
           return <MeetupInfo key={`meetup-${i}`} data={meetup}/>
         })}

@@ -7,7 +7,7 @@ export default class MeetupInfo extends React.Component {
   render() {
     return(
       <div>
-        <h2>{this.props.data.name}</h2>
+        <h2><a href="" onClick={this.getRes}>{this.props.data.name}</a></h2>
         <ul>
           <li><p>Venue: {this.props.data.venue.name}</p></li>
           <li><p>Address: {this.props.data.venue.address_1}</p></li>
