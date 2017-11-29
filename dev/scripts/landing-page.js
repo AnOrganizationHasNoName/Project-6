@@ -16,6 +16,8 @@ export default class LandingPage extends React.Component {
     }
 
     handleSubmit(e) {
+        e.preventDefault();
+        this.props.formSubmit(this.state.cityInput, this.state.country, this.state.catInput);
         this.setState({
             cityInput: '',
             catInput: '',
@@ -29,53 +31,44 @@ export default class LandingPage extends React.Component {
     }
 
     render() {
-        const { country } = this.state;
         return (
-            <div>
-                <div>
-                    <h1>MeetUp Page</h1>
-                </div>
-
-                <div className="form-container">
-                    <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                        <ul>
-                            <li>
-                                <select name="country" onChange={this.handleChange}>
-                                    {CountriesArray.map((country, i)=> 
-                                        <option
-                                            value={country.code}
-                                            key={`country-${i}`}
-                                        >
-                                            {country.name}
-                                        </option>)
-                                    }
-                                </select>
-                            </li>
-                            <li>
-                                <input type="text"
-                                    name="cityInput"
-                                    className="cityInput"
-                                    placeholder="City"
-                                    onChange={this.handleChange}
-                                    value={this.state.cityInput}
-                                />
-                            </li>
-                            <li>
-                                <input type="text"
-                                    name="catInput"
-                                    className="catInput"
-                                    placeholder="Category"
-                                    onChange={this.handleChange}
-                                    value={this.state.catInput} 
-                                />
-                            </li>
-                            <li>
-                                <button onSubmit={this.handleSubmit}>Search</button>
-                            </li>
-                        </ul>
-                    </form>
-                </div>
-              </div>
+            <form action="" className="user-form" onSubmit={this.handleSubmit}>
+                <ul>
+                    <li>
+                        <select name="country" onChange={this.handleChange}>
+                            {CountriesArray.map((country, i)=> 
+                                <option
+                                    value={country.code}
+                                    key={`country-${i}`}
+                                >
+                                    {country.name}
+                                </option>)
+                            }
+                        </select>
+                    </li>
+                    <li>
+                        <input type="text"
+                            name="cityInput"
+                            className="cityInput"
+                            placeholder="City"
+                            onChange={this.handleChange}
+                            value={this.state.cityInput}
+                        />
+                    </li>
+                    <li>
+                        <input type="text"
+                            name="catInput"
+                            className="catInput"
+                            placeholder="Category"
+                            onChange={this.handleChange}
+                            value={this.state.catInput} 
+                        />
+                    </li>
+                    <li>
+                        <button onSubmit={this.handleSubmit}>Search</button>
+                    </li>
+                </ul>
+            </form>     
         )
     }
 }
