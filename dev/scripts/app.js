@@ -8,11 +8,12 @@ import LandingPage from './landing-page';
 class App extends React.Component {
   constructor() {
     super();
+    this.getMeetups = this.getMeetups.bind(this);
     this.state = {
       meetups: [],
     }
   }
-  componentDidMount() {
+  getMeetups(city, country, category) {
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -24,9 +25,9 @@ class App extends React.Component {
         reqUrl: 'https://api.meetup.com/2/open_events',
         params: {
           key: '6a49717012332a5d284f3c775460653',
-          city: 'Toronto',
-          country: 'Canada',
-          text: 'tech'
+          city: city,
+          country: country,
+          text: category,
         },
         proxyHeaders: {
           'header_params': 'value'
@@ -43,7 +44,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <LandingPage />
+        <LandingPage formSubmit={this.getMeetups}/>
         {this.state.meetups.map((meetup, i)=>{
           return <MeetupInfo key={`meetup-${i}`} data={meetup}/>
         })}
