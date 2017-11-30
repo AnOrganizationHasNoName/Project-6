@@ -5,6 +5,10 @@ import Qs from 'qs';
 import MeetupInfo from './meetup-info';
 import LandingPage from './landing-page';
 import Restaurant from './restaurants';
+import {
+  BrowserRouter as Router,
+  Route, Link
+} from 'react-router-dom';
 
 class App extends React.Component {
   constructor() {
@@ -79,15 +83,18 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="searchMeetups">
-        <LandingPage formSubmit={this.getMeetups} />
-        {this.state.meetups.map((meetup, i) => {
-          return <MeetupInfo key={`meetup-${i}`} data={meetup} lat={meetup.venue.lat} lon={meetup.venue.lon} onClick={this.handleClick}/>
-        })}
-        {this.state.restaurants.map((restaurant)=>{
-          return <Restaurant data={restaurant} key={restaurant.id}/>
-        })}
-      </div>
+      <Router>
+        <div>
+          <LandingPage formSubmit={this.getMeetups} />
+          {this.state.meetups.map((meetup, i) => {
+            return <MeetupInfo key={`meetup-${i}`} data={meetup} places={this.getRes} />
+          })}
+          <ResResults data={this.state.places} />
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/meetups" component={MeetupInfo} />
+          <Route path="/meetup-restaurants" component={ResResults} />
+        </div>
+      </Router>
     )
     
   }
