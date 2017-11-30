@@ -5,6 +5,10 @@ import Qs from 'qs';
 import MeetupInfo from './meetup-info';
 import LandingPage from './landing-page';
 import ResResults from "./res-results";
+import {
+  BrowserRouter as Router,
+  Route, Link
+} from 'react-router-dom';
 
 class App extends React.Component {
   constructor() {
@@ -80,8 +84,10 @@ class App extends React.Component {
       console.log(placesArray)
       const places = placesArray.map((newResult, i)=> {
        return {
+         places,
          name: newResult.name,
-         vicinity: newResult.vicinity
+         vicinity: newResult.vicinity,
+         rating: newResult.rating
        }
       
       })
@@ -94,13 +100,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <LandingPage formSubmit={this.getMeetups}/>
-        {this.state.meetups.map((meetup, i) => {
-          return <MeetupInfo key={`meetup-${i}`} data={meetup} places={this.getRes} />
-        })}
-        <ResResults data={this.state.places}/> 
-      </div>
+    <Router>
+        <div>
+            <LandingPage formSubmit={this.getMeetups}/>
+            {this.state.meetups.map((meetup, i) => {
+              return <MeetupInfo key={`meetup-${i}`} data={meetup} places={this.getRes} />
+            })}
+            <ResResults data={this.state.places}/> 
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/meetups" component={MeetupInfo} />
+          <Route path="/meetup-restaurants" component={ResResults} />
+        </div>
+      </Router>
     )
   }
 }
