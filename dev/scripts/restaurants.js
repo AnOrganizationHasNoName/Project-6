@@ -6,9 +6,9 @@ class Restaurants extends React.Component {
     }
     render() {
         return(
-            <ul className="Restaurants">
+            <ul className="restaurants">
                 {this.props.data.map(restaurant =>{
-                    <li key={restaurant.id}>
+                    return <li key={restaurant.id}>
                         <h2>{restaurant.name}</h2>
                         <p>{restaurant.vicinity}</p>
                         <p>{restaurant.rating}</p>
