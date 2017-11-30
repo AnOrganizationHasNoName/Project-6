@@ -1,5 +1,48 @@
+
+//Variables
+
+$h2-size: 20px;
+
+//general styles
+
+h2{
+    font-size: $h2-size;
+}
+
+a{
+    word-wrap: break-word;
+}
+
 ul {
+    border: 2px solid red;
     list-style: none;
     padding: 0;
-    border: 1px solid red;
+    clear: both;
+}
+
+body{
+    border: 5px dotted orange;
+    display: inline-block;
+}
+
+//class based styling
+
+.searchMeetups{
+    border: 2px solid green;
+}
+.outerDiv{
+    border: 2px solid pink;
+    width: calc(33.33% - 15px);
+    float: left;
+    margin: 10px;
+    padding: 10px;
+}
+
+
+.meetupContent{
+    border: 2px solid purple;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 10px;
 }

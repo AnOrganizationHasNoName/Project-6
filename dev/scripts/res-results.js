@@ -1,8 +1,8 @@
 import React from 'react';
 
 export default class ResResults extends React.Component {
-    constructor(){
-        super();
+    cosntructor(){
+        // super();
         this.state={
             res: []
         }
@@ -12,17 +12,13 @@ export default class ResResults extends React.Component {
     }
     render(){
         return (
-            <div>
-                    {this.props.data.map((endRes)=> {
+            <ul>
+                    <p>Name:{this.props.data.map((endRes)=> {
                         return (
-                            <ul key={endRes.id}>
-                                <li key={endRes.name}>Name: {endRes.name}</li>
-                                <li key={endRes.vicinity}>>Address: {endRes.vicinity}</li>
-                                <li key={endRes.rating}>Rating: {endRes.rating}</li>
-                            </ul>
+                            <li>{endRes.name}</li>
                         )
-                    })}
-            </div>
+                    })}</p>
+            </ul>
         )
     }
 }
