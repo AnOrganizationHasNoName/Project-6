@@ -9,7 +9,7 @@ export default class LandingPage extends React.Component {
         super(props);
         this.state = {
             cityInput: '',
-            categoryInput: '',
+            categoryInput: 1,
             country: '',
             meetupCategories: []
         }
@@ -82,7 +82,7 @@ export default class LandingPage extends React.Component {
                     </li>
                     <li>
                         <select name="categoryInput" onChange={this.handleChange}>
-                            {this.state.meetupCategories.map((category)=>{
+                            {this.state.meetupCategories.map((category) => {
                                 return <option value={category.id} key={category.id}>{category.name}</option>
                             })}
                         </select>

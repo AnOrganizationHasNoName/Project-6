@@ -4,22 +4,25 @@ import axios from 'axios';
 import Qs from 'qs';
 import MeetupInfo from './meetup-info';
 import LandingPage from './landing-page';
+import ResResults from "./res-results";
 
 class App extends React.Component {
   constructor() {
     super();
-    
+
     this.getMeetups = this.getMeetups.bind(this);
+    this.getRes = this.getRes.bind(this);
     this.state = {
       meetups: [],
       longitude: '',
-      latitude: ''
+      latitude: '',
+      places: []
     }
   }
 
   //instead of the componentDidMount, the getMeetups function will take the user values
   //passing in city, country, category args to use as params(placeholders)
- 
+
   getMeetups(city, country, category) {
     axios({
       method: 'GET',
@@ -43,19 +46,15 @@ class App extends React.Component {
       }
     }).then((res) => {
       const meetups = res.data.results.filter(meetup => meetup.venue !== undefined);
-    
-      
       this.setState({
         meetups
-        
       })
-    
+
     });
   }
 
   //method to get restaurant location by google places API request
   getRes(longitude, latitude) {
-    
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -68,7 +67,7 @@ class App extends React.Component {
         params: {
           key: 'AIzaSyCpT2X1_HiFf3PJxmbYeIPpSIHGrdUTnmM',
           type: 'restaurant',
-          location: longitude,latitude,
+          location: `${ latitude }, ${ longitude }`,
           radius: 1000,
         },
         proxyHeaders: {
@@ -77,27 +76,37 @@ class App extends React.Component {
         xmlToJSON: false
       }
     }).then((result) => {
-      console.log(result)
+      const placesArray = result.data.results
+      console.log(placesArray)
+      const places = placesArray.map((newResult, i)=> {
+       return {
+         name: newResult.name,
+         vicinity: newResult.vicinity
+       }
       
+      })
+    
+      this.setState({
+        places
+      })
     })
   }
- 
+
   render() {
     return (
       <div>
-        <LandingPage formSubmit={this.getMeetups} />
+        <LandingPage formSubmit={this.getMeetups}/>
         {this.state.meetups.map((meetup, i) => {
-<<<<<<< HEAD
-          return <MeetupInfo key={`meetup-${i}`} data={meetup} lat={meetup.venue.lat} lon={meetup.venue.lon} />
-=======
-          return <MeetupInfo key={`meetup-${i}`} data={meetup} lat={meetup.venue.lat} lon={meetup.venue.lon}/>
-         
->>>>>>> b25acd37e8899c3fc96d6ad298db8d4f0efc802f
+          return <MeetupInfo key={`meetup-${i}`} data={meetup} places={this.getRes} />
         })}
+        <ResResults data={this.state.places}/> 
       </div>
     )
-  } 
+  }
 }
 
 //comment
 ReactDOM.render(<App />, document.getElementById('app'));
+
+
+// lat={meetup.venue.lat} lon={meetup.venue.lon}
