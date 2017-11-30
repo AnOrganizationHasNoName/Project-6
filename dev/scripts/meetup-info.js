@@ -3,11 +3,6 @@ import React from 'react';
 export default class Meetups extends React.Component {
   constructor() {
     super();
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleClick() {
-    console.log('test');
-    this.props.onClick(this.props.data.venue.lat, this.props.data.venue.lon);
   }
   render() {
     return (
@@ -19,29 +14,10 @@ export default class Meetups extends React.Component {
                 <p>Meetup Time: {getTime(meetup.time)}</p>
                 <p>Meetup Date: {getDate(meetup.time)}</p>
                 <p>Event URL: <a href={meetup.event_url}>{meetup.event_url}</a></p>
-                <button onClick={this.handleClick}>Find Restaurants</button>
+              <button onClick={this.props.onClick(meetup.venue.lat, meetup.venue.lon)}>Find Restaurants</button>
             </li>
           })}
         </ul>
-
-        // <ul className="meetup">
-        //   <li><h2>{this.props.data.name}</h2></li>
-        //   <li>
-        //     <p>{this.props.data.venue.name}, {this.props.data.venue.address_1}</p>
-        //   </li>
-        //   <li>
-        //     <p>Meetup Time: {getTime(this.props.data.time)}</p>
-        //   </li>
-        //   <li>
-        //     <p>Meetup Date: {getDate(this.props.data.time)}</p>
-        //   </li>
-        //   <li>
-        //   <li>
-        //     <p>Event URL: <a href={this.props.data.event_url}>{this.props.data.event_url}</a></p>
-        //   </li>
-        //     <button onClick={this.handleClick}>Find Restaurants</button>
-        //   </li>
-        // </ul>
     )
   }
 }

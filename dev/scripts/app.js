@@ -5,7 +5,7 @@ import Qs from 'qs';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Meetups from './meetup-info';
 import LandingPage from './landing-page';
-import Restaurant from './restaurants';
+import Restaurants from './restaurants';
 
 class App extends React.Component {
   constructor() {
@@ -79,9 +79,8 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         <LandingPage formSubmit={this.getMeetups} />
-        <Meetups data={this.state.meetups}/>
-        {/* {this.state.meetups.map(meetup => <MeetupInfo key={meetup.id} data={meetup}onClick={this.getRestaurants}/>)} */}
-        {this.state.restaurants.map(restaurant => <Restaurant data={restaurant} key={restaurant.id}/>)}
+        <Meetups data={this.state.meetups} onClick={this.getRestaurants}/>
+        <Restaurants data={this.state.restaurants}/> 
       </div>
     )
   }
