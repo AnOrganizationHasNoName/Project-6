@@ -7,7 +7,7 @@ import LandingPage from './landing-page';
 import Restaurant from './restaurants';
 import {
   BrowserRouter as Router,
-  Route, Link
+Route, Link
 } from 'react-router-dom';
 
 class App extends React.Component {
@@ -89,10 +89,10 @@ class App extends React.Component {
           {this.state.meetups.map((meetup, i) => {
             return <MeetupInfo key={`meetup-${i}`} data={meetup} places={this.getRes} />
           })}
-          <ResResults data={this.state.places} />
+          {/* <ResResults data={this.state.places} />
           <Route exact path="/" component={LandingPage} />
           <Route path="/meetups" component={MeetupInfo} />
-          <Route path="/meetup-restaurants" component={ResResults} />
+          <Route path="/meetup-restaurants" component={ResResults} /> */}
         </div>
       </Router>
     )
