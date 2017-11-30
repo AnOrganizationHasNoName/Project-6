@@ -9,6 +9,7 @@ import {
   BrowserRouter as Router,
   Route, Link
 } from 'react-router-dom';
+import ResResults from "./res-results";
 
 class App extends React.Component {
   constructor() {

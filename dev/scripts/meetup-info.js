@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route, Link
+} from 'react-router-dom';
 
 export default class MeetupInfo extends React.Component {
   constructor() {
@@ -8,7 +12,13 @@ export default class MeetupInfo extends React.Component {
     return (
       <div className="outerDiv">
           <ul className="meetupContent">
-            <li><h2>{this.props.data.name}</h2></li>
+            <li>
+              <h2>
+              <Link to="/meetup-restaurants">
+            {this.props.data.name}
+            </Link>
+            </h2>
+            </li>
             <li><p>Venue: {this.props.data.venue.name}</p></li>
             <li><p>Address: {this.props.data.venue.address_1}</p></li>
             <li>
