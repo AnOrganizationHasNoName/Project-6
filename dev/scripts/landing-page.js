@@ -19,11 +19,6 @@ export default class LandingPage extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formSubmit(this.state.cityInput, this.state.country, this.state.categoryInput);
-        // this.setState({
-        //     cityInput: '',
-        //     categoryInput: '',
-        //     country: ''
-        // })
     }
     handleChange(e) {
         this.setState({
