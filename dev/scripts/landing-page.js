@@ -5,7 +5,7 @@ import CountriesArray from './country-array';
 import Qs from 'qs';
 
 export default class LandingPage extends React.Component {
-    constructor(props){
+    constructor(props) {
         super(props);
         this.state = {
             cityInput: '',
@@ -82,7 +82,7 @@ export default class LandingPage extends React.Component {
                     </li>
                     <li>
                         <select name="categoryInput" onChange={this.handleChange}>
-                            {this.state.meetupCategories.map((category)=>{
+                            {this.state.meetupCategories.map((category) => {
                                 return <option value={category.id} key={category.id}>{category.name}</option>
                             })}
                         </select>
