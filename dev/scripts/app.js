@@ -93,8 +93,9 @@ class App extends React.Component {
           {this.state.restaurants.map((restaurant) => {
             return <Restaurant data={restaurant} key={restaurant.id} />
           })}
-              <Route exact path="/" component={LandingPage} />
-              <Route path="/meetups" component={MeetupInfo} />
+
+          <Route exact path="/" component={LandingPage} />
+          <Route path="/meetups" component={MeetupInfo} />
           <Route path="/meetup-restaurants" component={ResResults} />
         </div>
 
