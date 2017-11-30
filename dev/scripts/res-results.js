@@ -2,7 +2,7 @@ import React from 'react';
 
 export default class ResResults extends React.Component {
     cosntructor(){
-   /*      super(); */
+        // super();
         this.state={
             res: []
         }

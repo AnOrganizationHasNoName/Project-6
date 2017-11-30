@@ -94,19 +94,22 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
-        <LandingPage formSubmit={this.getMeetups}/>
-        {this.state.meetups.map((meetup, i) => {
-          return <MeetupInfo key={`meetup-${i}`} data={meetup} places={this.getRes} />
-        })}
-        <ResResults data={this.state.places}/> 
-      </div>
+      <section className="meetupContent">
+        <div>
+          <LandingPage formSubmit={this.getMeetups}/>
+          {this.state.meetups.map((meetup, i) => {
+            return <MeetupInfo key={`meetup-${i}`} data={meetup} places={this.getRes} />
+          })}
+          <ResResults data={this.state.places}/> 
+        </div>
+      </section>
+      
     )
+    
   }
 }
 
-//comment
+
 ReactDOM.render(<App />, document.getElementById('app'));
 
 
-// lat={meetup.venue.lat} lon={meetup.venue.lon}
