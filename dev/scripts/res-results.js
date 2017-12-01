@@ -13,11 +13,11 @@ export default class ResResults extends React.Component {
     render(){
         return (
             <ul>
-                    <p>Name:{this.props.data.map((endRes)=> {
-                        return (
-                            <li>{endRes.name}</li>
-                        )
-                    })}</p>
+                <p>Name:{this.props.data.map((endRes)=> {
+                    return (
+                        <li>{endRes.name}</li>
+                    )
+                })}</p>
             </ul>
         )
     }

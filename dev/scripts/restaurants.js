@@ -1,18 +1,22 @@
 import React from 'react';
 
-class Restaurant extends React.Component {
+class Restaurants extends React.Component {
     constructor() {
         super();
     }
     render() {
         return(
-            <ul>
-                <li><h2>{this.props.data.name}</h2></li>
-                <li><p>{this.props.data.vicinity}</p></li>
-                <li><p>Rating: {this.props.data.rating}</p></li>
+            <ul className="restaurants">
+                {this.props.data.map(restaurant =>{
+                    return <li key={restaurant.id}>
+                        <h2>{restaurant.name}</h2>
+                        <p>{restaurant.vicinity}</p>
+                        <p>{restaurant.rating}</p>
+                    </li>
+                })}
             </ul>
         )
     }
 }
 
-export default Restaurant;
+export default Restaurants;
