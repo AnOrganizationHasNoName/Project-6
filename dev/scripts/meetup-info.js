@@ -10,6 +10,7 @@ export default class Meetups extends React.Component {
     this.state={
       showMeetup: true
     }
+  ) 
   }
   render() {
     return (
