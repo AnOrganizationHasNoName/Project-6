@@ -50,7 +50,12 @@ class App extends React.Component {
       const restaurantRefs = res.data.results.map(restaurant=> restaurant.reference);
       // console.log(restaurantRefs);
       this.getRestaurantDetails(restaurantRefs);
+      this.setState({
+        showMeetup: false
+      })
+      { this.state.showMeetup ? <Meetups /> : <Restaurants data={this.state.restaurants} /> }
     });
+    
   }
   getRestaurantDetails(restaurantRefs) {
     // this method will be called in the getRestaurantRefs function where the restaurantRefs information lives
@@ -59,7 +64,11 @@ class App extends React.Component {
     // for each of the restaurant ids run an axios request
     // store each of these ajax requests in an array
     // use promise.all on this array of ajax requests 
+    this.setState({
+      showInput: false
+    })
     const restaurantDetails = restaurantRefs.map(restaurantRef => {
+
       return axios({
         method: 'GET',
         url: 'http://proxy.hackeryou.com',
@@ -125,9 +134,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="wrapper">
-        <LandingPage formSubmit={this.getMeetups} />
+        {this.state.showInput ? <LandingPage formSubmit={this.getMeetups} displayState={this.state.showINput} /> : <Meetups data={this.state.meetups} onClick={this.getRestaurants} />}
+{/*         <LandingPage formSubmit={this.getMeetups} />
         <Meetups data={this.state.meetups} onClick={this.getRestaurantRefs} />
-        <Restaurants data={this.state.restaurants} />
+        <Restaurants data={this.state.restaurants} /> */}
       </div>
       
     )
