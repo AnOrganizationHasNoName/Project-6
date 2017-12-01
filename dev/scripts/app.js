@@ -2,21 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Qs from 'qs';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Meetups from './meetup-info';
 import LandingPage from './landing-page';
 import Restaurants from './restaurants';
 
+
 class App extends React.Component {
   constructor() {
     super();
-    this.getMeetups = this.getMeetups.bind(this);
-    this.getRestaurants = this.getRestaurants.bind(this);
-    this.handleClick = this.getMeetups.bind(this);
     this.state = {
       meetups: [],
       restaurants: [],
+      showInput: true,
+      showMeetup: true
     }
+    this.getMeetups = this.getMeetups.bind(this);
+    this.getRestaurants = this.getRestaurants.bind(this);
+    this.handleClick = this.getMeetups.bind(this);
   }
   getRestaurants(lat, lon) {
     axios({
@@ -43,11 +45,16 @@ class App extends React.Component {
     }).then((res) => {
       const restaurants = res.data.results;
       this.setState({
-        restaurants
+        restaurants,
+        showMeetup: false
       });
+      { this.state.showMeetup ? <Meetups  data={this.state.meetups} onClick={this.getRestaurants}/> : <Restaurants data={this.state.restaurants}/>}
     });
   }
   getMeetups(city, country, category) {
+    this.setState({
+      showInput: false
+    })
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -70,33 +77,26 @@ class App extends React.Component {
       }
     }).then((res) => {
       const meetups = res.data.results.filter(meetup => meetup.venue !== undefined);
+      console.log(this)
       this.setState({
-        meetups
+        meetups,
+
       })
     });
   }
   render() {
     return (
-<<<<<<< HEAD
-      <div className="searchMeetups">
-          <LandingPage formSubmit={this.getMeetups} />
-          {this.state.meetups.map((meetup, i) => {
-            return <MeetupInfo key={`meetup-${i}`} data={meetup} lat={meetup.venue.lat} lon={meetup.venue.lon} onClick={this.handleClick} />
-          })}
-          {this.state.restaurants.map((restaurant) => {
-            return <Restaurant data={restaurant} key={restaurant.id} />
-          })}
-        </div>
-=======
       <div className="wrapper">
-        <LandingPage formSubmit={this.getMeetups} />
-        <Meetups data={this.state.meetups} onClick={this.getRestaurants}/>
-        <Restaurants data={this.state.restaurants}/> 
+       { this.state.showInput ? <LandingPage formSubmit={this.getMeetups} displayState={this.state.showINput} /> : <Meetups data={this.state.meetups} onClick={this.getRestaurants}/>}
+               
+  {/*           <Restaurants data={this.state.restaurants}/>   */}
       </div>
->>>>>>> 5668267b732ab3a71b9ed02882c522f06c47595a
+      
     )
 
   }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+
+// data={this.state.meetups} lat={this.state.meetups.venue.lat} lon = { this.state.meetups.venue.lon }

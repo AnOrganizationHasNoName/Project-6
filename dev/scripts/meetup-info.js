@@ -1,15 +1,15 @@
 import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route, Link
-} from 'react-router-dom';
 
 export default class Meetups extends React.Component {
   constructor() {
     super();
+    this.state={
+      showMeetup: true
+    }
   }
   render() {
     return (
+      <div>
         <ul className="meetups">
           {this.props.data.map(meetup =>{
             return <li className="meetup" key={meetup.id}>
@@ -18,7 +18,7 @@ export default class Meetups extends React.Component {
                 <p>Meetup Time: {getTime(meetup.time)}</p>
                 <p>Meetup Date: {getDate(meetup.time)}</p>
                 <p>Event URL: <a href={meetup.event_url}>{meetup.event_url}</a></p>
-                <button onClick={()=>{this.props.onClick(meetup.venue.lat, meetup.venue.lon)}}>Find Restaurants</button>
+              <button onClick={() => { this.props.onClick(meetup.venue.lat, meetup.venue.lon) }}>Find Restaurants</button>
             </li>
           })}
         </ul>
