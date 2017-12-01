@@ -16,8 +16,12 @@ class App extends React.Component {
     this.state = {
       meetups: [],
       restaurants: [],
+      showInput: true,
+
+    
     }
   }
+
   getRestaurants(lat, lon) {
     axios({
       method: 'GET',
@@ -47,6 +51,7 @@ class App extends React.Component {
       });
     });
   }
+
   getMeetups(city, country, category) {
     axios({
       method: 'GET',
@@ -80,7 +85,7 @@ class App extends React.Component {
       <div className="wrapper">
         <LandingPage formSubmit={this.getMeetups} />
         <Meetups data={this.state.meetups} onClick={this.getRestaurants}/>
-        <Restaurants data={this.state.restaurants}/> 
+        <Restaurants data={this.state.restaurants}/>  
       </div>
     )
 

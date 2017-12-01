@@ -7,9 +7,11 @@ import {
 export default class Meetups extends React.Component {
   constructor() {
     super();
+    
   }
   render() {
     return (
+      <div>
         <ul className="meetups">
           {this.props.data.map(meetup =>{
             return <li className="meetup" key={meetup.id}>
@@ -23,11 +25,11 @@ export default class Meetups extends React.Component {
           })}
         </ul>
       </div>
-      </Link>
     )
   }
 }
 
 const getTime = (millsecondsTime) => new Date(millsecondsTime).toTimeString();
 const getDate = (millsecondsTime) => new Date(millsecondsTime).toLocaleDateString();
+
 

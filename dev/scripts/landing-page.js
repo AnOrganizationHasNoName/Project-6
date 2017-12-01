@@ -3,6 +3,7 @@ import axios from "axios";
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import CountriesArray from './country-array';
 import Qs from 'qs';
+import Meetups from './meetup-info';
 import {
     BrowserRouter as Router,
     Route, Link
@@ -15,7 +16,8 @@ export default class LandingPage extends React.Component {
             cityInput: '',
             categoryInput: 1,
             country: '',
-            meetupCategories: []
+            meetupCategories: [],
+            showInput: ''
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -23,12 +25,21 @@ export default class LandingPage extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formSubmit(this.state.cityInput, this.state.country, this.state.categoryInput);
+        this.setState ({
+            showInput: false
+            
+        })
+       
+
     }
+
     handleChange(e) {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+           
         })
     }
+    
     componentDidMount() {
         axios({
             method: 'GET',
@@ -54,8 +65,10 @@ export default class LandingPage extends React.Component {
             })
         });
     }
+
     render() {
         return (
+        <div>   
             <form action="" className="user-form" onSubmit={this.handleSubmit}>
                 <ul>
                     <li>
@@ -87,10 +100,17 @@ export default class LandingPage extends React.Component {
                         </select>
                     </li>
                     <li>
-                        <Link to="/meetups" onSubmit={this.handleSubmit}>Search</Link>
+                     {/* {this.state.showInput === false ? <LandingPage /> : } */}
+                      <button onSubmit={this.handleSubmit} >
+                        Search
+                        </button>
+
                     </li>
                 </ul>
-            </form>
-        )
-    }
-}
+            </form> 
+             
+              
+        </div> 
+        ) 
+    } 
+} 
