@@ -5,8 +5,6 @@ import Qs from 'qs';
 import Meetups from './meetup-info';
 import LandingPage from './landing-page';
 import Restaurants from './restaurants';
-
-
 class App extends React.Component {
   constructor() {
     super();
@@ -47,7 +45,7 @@ class App extends React.Component {
         xmlToJSON: false
       }
     }).then(res => {
-      const restaurantRefs = res.data.results.map(restaurant=> restaurant.reference);
+      const restaurantRefs = res.data.results.map(restaurant => restaurant.reference);
       // console.log(restaurantRefs);
       this.getRestaurantDetails(restaurantRefs);
       this.setState({
@@ -55,12 +53,11 @@ class App extends React.Component {
       })
       { this.state.showMeetup ? <Meetups /> : <Restaurants data={this.state.restaurants} /> }
     });
-    
+
   }
   getRestaurantDetails(restaurantRefs) {
     // this method will be called in the getRestaurantRefs function where the restaurantRefs information lives
     // therefore, make a placeholder for now
-
     // for each of the restaurant ids run an axios request
     // store each of these ajax requests in an array
     // use promise.all on this array of ajax requests 
@@ -68,7 +65,6 @@ class App extends React.Component {
       showInput: false
     })
     const restaurantDetails = restaurantRefs.map(restaurantRef => {
-
       return axios({
         method: 'GET',
         url: 'http://proxy.hackeryou.com',
@@ -86,16 +82,14 @@ class App extends React.Component {
         }
       });
     })
-    Promise.all(restaurantDetails).then(res =>{
-      const restaurants = res.map((res)=>{
+    Promise.all(restaurantDetails).then(res => {
+      const restaurants = res.map((res) => {
         return res.data.result;
       })
-
       console.log(restaurants);
-      
       this.setState({
         restaurants
-      }) 
+      })
     })
   }
   getMeetups(city, country, category) {
@@ -127,7 +121,6 @@ class App extends React.Component {
       console.log(this)
       this.setState({
         meetups,
-
       })
     });
   }
@@ -135,13 +128,11 @@ class App extends React.Component {
     return (
       <div className="wrapper">
         {this.state.showInput ? <LandingPage formSubmit={this.getMeetups} displayState={this.state.showINput} /> : <Meetups data={this.state.meetups} onClick={this.getRestaurants} />}
-{/*         <LandingPage formSubmit={this.getMeetups} />
+        {/*         <LandingPage formSubmit={this.getMeetups} />
         <Meetups data={this.state.meetups} onClick={this.getRestaurantRefs} />
         <Restaurants data={this.state.restaurants} /> */}
       </div>
-      
     )
   }
 }
-
 ReactDOM.render(<App />, document.getElementById('app'));

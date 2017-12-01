@@ -3,7 +3,6 @@ import axios from "axios";
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import CountriesArray from './country-array';
 import Qs from 'qs';
-
 export default class LandingPage extends React.Component {
     constructor(props) {
         super(props);
@@ -20,15 +19,17 @@ export default class LandingPage extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formSubmit(this.state.cityInput, this.state.country, this.state.categoryInput);
-        this.setState={
+        this.setState = {
             showRes: false
         }
     }
     handleChange(e) {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+
         })
     }
+
     componentDidMount() {
         axios({
             method: 'GET',
@@ -56,41 +57,43 @@ export default class LandingPage extends React.Component {
     }
     render() {
         return (
-            <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                <ul>
-                    <li>
-                        <select name="country" onChange={this.handleChange}>
-                            {CountriesArray.map((country, i) =>
-                                <option
-                                    value={country.code}
-                                    key={`country-${i}`}
-                                >
-                                    {country.name}
-                                </option>)
-                            }
-                        </select>
-                    </li>
-                    <li>
-                        <input type="text"
-                            name="cityInput"
-                            className="cityInput"
-                            placeholder="City"
-                            onChange={this.handleChange}
-                            value={this.state.cityInput}
-                        />
-                    </li>
-                    <li>
-                        <select name="categoryInput" onChange={this.handleChange}>
-                            {this.state.meetupCategories.map((category) => {
-                                return <option value={category.id} key={category.id}>{category.name}</option>
-                            })}
-                        </select>
-                    </li>
-                    <li>
-                        <button onSubmit={this.handleSubmit}>Search</button>
-                    </li>
-                </ul>
-            </form>
+            <div>
+                <form action="" className="user-form" onSubmit={this.handleSubmit}>
+                    <ul>
+                        <li>
+                            <select name="country" onChange={this.handleChange}>
+                                {CountriesArray.map((country, i) =>
+                                    <option
+                                        value={country.code}
+                                        key={`country-${i}`}
+                                    >
+                                        {country.name}
+                                    </option>)
+                                }
+                            </select>
+                        </li>
+                        <li>
+                            <input type="text"
+                                name="cityInput"
+                                className="cityInput"
+                                placeholder="City"
+                                onChange={this.handleChange}
+                                value={this.state.cityInput}
+                            />
+                        </li>
+                        <li>
+                            <select name="categoryInput" onChange={this.handleChange}>
+                                {this.state.meetupCategories.map((category) => {
+                                    return <option value={category.id} key={category.id}>{category.name}</option>
+                                })}
+                            </select>
+                        </li>
+                        <li>
+                            <button onSubmit={this.handleSubmit}>Search</button>
+                        </li>
+                    </ul>
+                </form>
+            </div>
         )
     }
 }
