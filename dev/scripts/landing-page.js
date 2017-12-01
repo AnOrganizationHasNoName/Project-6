@@ -11,7 +11,8 @@ export default class LandingPage extends React.Component {
             cityInput: '',
             categoryInput: 1,
             country: '',
-            meetupCategories: []
+            meetupCategories: [],
+            showRes: true
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -19,6 +20,9 @@ export default class LandingPage extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formSubmit(this.state.cityInput, this.state.country, this.state.categoryInput);
+        this.setState={
+            showRes: false
+        }
     }
     handleChange(e) {
         this.setState({

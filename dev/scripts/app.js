@@ -2,10 +2,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Qs from 'qs';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Meetups from './meetup-info';
 import LandingPage from './landing-page';
 import Restaurants from './restaurants';
+
 
 class App extends React.Component {
   constructor() {
@@ -17,7 +17,12 @@ class App extends React.Component {
     this.state = {
       meetups: [],
       restaurants: [],
+      showInput: true,
+      showMeetup: true
     }
+    this.getMeetups = this.getMeetups.bind(this);
+    this.getRestaurants = this.getRestaurants.bind(this);
+    this.handleClick = this.getMeetups.bind(this);
   }
   getRestaurantRefs(lat, lon) {
     axios({
@@ -85,6 +90,9 @@ class App extends React.Component {
     })
   }
   getMeetups(city, country, category) {
+    this.setState({
+      showInput: false
+    })
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -107,8 +115,10 @@ class App extends React.Component {
       }
     }).then(res => {
       const meetups = res.data.results.filter(meetup => meetup.venue !== undefined);
+      console.log(this)
       this.setState({
-        meetups
+        meetups,
+
       })
     });
   }
@@ -119,6 +129,7 @@ class App extends React.Component {
         <Meetups data={this.state.meetups} onClick={this.getRestaurantRefs} />
         <Restaurants data={this.state.restaurants} />
       </div>
+      
     )
   }
 }
