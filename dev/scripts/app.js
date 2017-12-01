@@ -19,7 +19,7 @@ class App extends React.Component {
       restaurants: [],
     }
   }
-  getRestaurantrefs(lat, lon) {
+  getRestaurantRefs(lat, lon) {
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -43,7 +43,7 @@ class App extends React.Component {
       }
     }).then(res => {
       const restaurantRefs = res.data.results.map(restaurant=> restaurant.reference);
-      console.log(restaurantRefs);
+      // console.log(restaurantRefs);
       this.getRestaurantDetails(restaurantRefs);
     });
   }
@@ -72,8 +72,16 @@ class App extends React.Component {
         }
       });
     })
-    Promise.all(restaurantDetails).then((res)=>{
-      console.log(res);
+    Promise.all(restaurantDetails).then(res =>{
+      const restaurants = res.map((res)=>{
+        return res.data.result;
+      })
+
+      console.log(restaurants);
+      
+      this.setState({
+        restaurants
+      }) 
     })
   }
   getMeetups(city, country, category) {
