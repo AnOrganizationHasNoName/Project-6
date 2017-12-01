@@ -3,11 +3,6 @@ import axios from "axios";
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import CountriesArray from './country-array';
 import Qs from 'qs';
-import Meetups from './meetup-info';
-import {
-    BrowserRouter as Router,
-    Route, Link
-} from 'react-router-dom';
 
 export default class LandingPage extends React.Component {
     constructor(props) {
@@ -17,7 +12,7 @@ export default class LandingPage extends React.Component {
             categoryInput: 1,
             country: '',
             meetupCategories: [],
-            showInput: ''
+            showRes: true
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -25,12 +20,9 @@ export default class LandingPage extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formSubmit(this.state.cityInput, this.state.country, this.state.categoryInput);
-        this.setState ({
-            showInput: false
-            
-        })
-       
-
+        this.setState={
+            showRes: false
+        }
     }
 
     handleChange(e) {
@@ -100,17 +92,10 @@ export default class LandingPage extends React.Component {
                         </select>
                     </li>
                     <li>
-                     {/* {this.state.showInput === false ? <LandingPage /> : } */}
-                      <button onSubmit={this.handleSubmit} >
-                        Search
-                        </button>
-
+                        <button onSubmit={this.handleSubmit}>Search</button>
                     </li>
                 </ul>
-            </form> 
-             
-              
-        </div> 
-        ) 
-    } 
-} 
+            </form>
+        )
+    }
+}
