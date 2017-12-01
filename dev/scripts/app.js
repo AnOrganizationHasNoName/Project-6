@@ -47,7 +47,7 @@ class App extends React.Component {
         xmlToJSON: false
       }
     }).then(res => {
-      const restaurantRefs = res.data.results.map(restaurant=> restaurant.reference);
+      const restaurantRefs = res.data.results.map(restaurant => restaurant.reference);
       // console.log(restaurantRefs);
       this.getRestaurantDetails(restaurantRefs);
     });
@@ -77,19 +77,18 @@ class App extends React.Component {
         }
       });
     })
-    Promise.all(restaurantDetails).then(res =>{
-      const restaurants = res.map((res)=>{
+    Promise.all(restaurantDetails).then(res => {
+      const restaurants = res.map((res) => {
         return res.data.result;
       })
 
       console.log(restaurants);
-      
+
       this.setState({
         restaurants
-      }) 
+      })
     })
   }
-
   getMeetups(city, country, category) {
     this.setState({
       showInput: false
@@ -130,9 +129,10 @@ class App extends React.Component {
         <Meetups data={this.state.meetups} onClick={this.getRestaurantRefs} />
         <Restaurants data={this.state.restaurants} />
       </div>
-      
+
     )
   }
 }
 
 ReactDOM.render(<App />, document.getElementById('app'));
+

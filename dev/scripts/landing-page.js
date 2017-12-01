@@ -96,6 +96,7 @@ export default class LandingPage extends React.Component {
                     </li>
                 </ul>
             </form>
+         </div>   
         )
     }
 }
