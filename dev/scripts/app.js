@@ -10,13 +10,10 @@ import Restaurants from './restaurants';
 class App extends React.Component {
   constructor() {
     super();
-<<<<<<< HEAD
-=======
     this.getMeetups = this.getMeetups.bind(this);
     this.getRestaurantRefs = this.getRestaurantRefs.bind(this);
     this.getRestaurantDetails = this.getRestaurantDetails.bind(this);
     this.handleClick = this.getMeetups.bind(this);
->>>>>>> 3bcf9e05eb76dd9e41c3b70199ae5c01297fcc00
     this.state = {
       meetups: [],
       restaurants: [],
@@ -88,17 +85,9 @@ class App extends React.Component {
       console.log(restaurants);
       
       this.setState({
-<<<<<<< HEAD
-        restaurants,
-        showMeetup: false
-      });
-      { this.state.showMeetup ? <Meetups  data={this.state.meetups} onClick={this.getRestaurants}/> : <Restaurants data={this.state.restaurants}/>}
-    });
-=======
         restaurants
       }) 
     })
->>>>>>> 3bcf9e05eb76dd9e41c3b70199ae5c01297fcc00
   }
   getMeetups(city, country, category) {
     this.setState({
@@ -136,25 +125,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="wrapper">
-<<<<<<< HEAD
-       { this.state.showInput ? <LandingPage formSubmit={this.getMeetups} displayState={this.state.showINput} /> : <Meetups data={this.state.meetups} onClick={this.getRestaurants}/>}
-               
-  {/*           <Restaurants data={this.state.restaurants}/>   */}
-=======
         <LandingPage formSubmit={this.getMeetups} />
         <Meetups data={this.state.meetups} onClick={this.getRestaurantRefs} />
         <Restaurants data={this.state.restaurants} />
->>>>>>> 3bcf9e05eb76dd9e41c3b70199ae5c01297fcc00
       </div>
       
     )
   }
 }
 
-<<<<<<< HEAD
 ReactDOM.render(<App />, document.getElementById('app'));
-
-// data={this.state.meetups} lat={this.state.meetups.venue.lat} lon = { this.state.meetups.venue.lon }
-=======
-ReactDOM.render(<App />, document.getElementById('app'));
->>>>>>> 3bcf9e05eb76dd9e41c3b70199ae5c01297fcc00
