@@ -10,7 +10,7 @@ export default class Meetups extends React.Component {
         {this.props.data.map(meetup => {
           return <li className="meetup" key={meetup.id}>
             <h2>{meetup.name}</h2>
-            <p>{meetup.venue.name}</p>
+            <p>{meetup.venue.name}, {meetup.venue.address_1}</p>
             <p>Meetup Time: {getTime(meetup.time)}</p>
             <p>Meetup Date: {getDate(meetup.time)}</p>
             <p>Event URL: <a href={meetup.event_url}>{meetup.event_url}</a></p>
@@ -22,5 +22,5 @@ export default class Meetups extends React.Component {
   }
 }
 
-const getTime = (millsecondsTime) => new Date(millsecondsTime).toTimeString();
+const getTime = (millsecondsTime) => new Date(millsecondsTime).toTimeString().slice(0,5);
 const getDate = (millsecondsTime) => new Date(millsecondsTime).toLocaleDateString();
