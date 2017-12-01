@@ -24,11 +24,14 @@ export default class LandingPage extends React.Component {
             showRes: false
         }
     }
+
     handleChange(e) {
         this.setState({
-            [e.target.name]: e.target.value
+            [e.target.name]: e.target.value,
+           
         })
     }
+    
     componentDidMount() {
         axios({
             method: 'GET',
@@ -54,8 +57,10 @@ export default class LandingPage extends React.Component {
             })
         });
     }
+
     render() {
         return (
+        <div>   
             <form action="" className="user-form" onSubmit={this.handleSubmit}>
                 <ul>
                     <li>
@@ -91,6 +96,7 @@ export default class LandingPage extends React.Component {
                     </li>
                 </ul>
             </form>
+         </div>   
         )
     }
 }
