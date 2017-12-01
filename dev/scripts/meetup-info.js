@@ -3,11 +3,6 @@ import React from 'react';
 export default class Meetups extends React.Component {
   constructor() {
     super();
-    this.handleClick = this.handleClick.bind(this);
-  }
-  handleClick() {
-    console.log('test');
-    // this.props.onClick(meetup.venue.lat, meetup.venue.lon);
   }
   render() {
     return (
@@ -19,10 +14,7 @@ export default class Meetups extends React.Component {
                 <p>Meetup Time: {getTime(meetup.time)}</p>
                 <p>Meetup Date: {getDate(meetup.time)}</p>
                 <p>Event URL: <a href={meetup.event_url}>{meetup.event_url}</a></p>
-                <button
-                  onClick={this.handleClick}>
-                  Find Restaurants
-                </button>
+                <button onClick={()=>{this.props.onClick(meetup.venue.lat, meetup.venue.lon)}}>Find Restaurants</button>
             </li>
           })}
         </ul>
