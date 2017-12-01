@@ -9,6 +9,7 @@ export default class Meetups extends React.Component {
   }
   render() {
     return (
+<<<<<<< HEAD
       <div>
         <ul className="meetups">
           {this.props.data.map(meetup =>{
@@ -24,10 +25,23 @@ export default class Meetups extends React.Component {
         </ul>
       </div>
       
+=======
+      <ul className="meetups">
+        {this.props.data.map(meetup => {
+          return <li className="meetup" key={meetup.id}>
+            <h2>{meetup.name}</h2>
+            <p>{meetup.venue.name}, {meetup.venue.address_1}</p>
+            <p>Meetup Time: {getTime(meetup.time)}</p>
+            <p>Meetup Date: {getDate(meetup.time)}</p>
+            <p>Event URL: <a href={meetup.event_url}>{meetup.event_url}</a></p>
+            <button onClick={() => { this.props.onClick(meetup.venue.lat, meetup.venue.lon) }}>Find Restaurants</button>
+          </li>
+        })}
+      </ul>
+>>>>>>> 3bcf9e05eb76dd9e41c3b70199ae5c01297fcc00
     )
   }
 }
 
-const getTime = (millsecondsTime) => new Date(millsecondsTime).toTimeString();
+const getTime = (millsecondsTime) => new Date(millsecondsTime).toTimeString().slice(0,5);
 const getDate = (millsecondsTime) => new Date(millsecondsTime).toLocaleDateString();
-
