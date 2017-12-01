@@ -3,10 +3,6 @@ import axios from "axios";
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import CountriesArray from './country-array';
 import Qs from 'qs';
-import {
-    BrowserRouter as Router,
-    Route, Link
-} from 'react-router-dom';
 
 export default class LandingPage extends React.Component {
     constructor(props) {
@@ -87,7 +83,7 @@ export default class LandingPage extends React.Component {
                         </select>
                     </li>
                     <li>
-                        <Link to="/meetups" onSubmit={this.handleSubmit}>Search</Link>
+                        <button onSubmit={this.handleSubmit}>Search</button>
                     </li>
                 </ul>
             </form>

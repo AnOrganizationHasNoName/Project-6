@@ -5,9 +5,9 @@ class Restaurants extends React.Component {
         super();
     }
     render() {
-        return(
+        return (
             <ul className="restaurants">
-                {this.props.data.map(restaurant =>{
+                {this.props.data.map(restaurant => {
                     return <li key={restaurant.id}>
                         <h2>{restaurant.name}</h2>
                         <p>{restaurant.vicinity}</p>
