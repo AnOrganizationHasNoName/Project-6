@@ -84,7 +84,6 @@ class App extends React.Component {
   }
   render() {
     return (
-    <Router >
       <div className="searchMeetups">
           <LandingPage formSubmit={this.getMeetups} />
           {this.state.meetups.map((meetup, i) => {
@@ -93,12 +92,7 @@ class App extends React.Component {
           {this.state.restaurants.map((restaurant) => {
             return <Restaurant data={restaurant} key={restaurant.id} />
           })}
-              <Route exact path="/" component={LandingPage} />
-              <Route path="/meetups" component={MeetupInfo} />
-          <Route path="/meetup-restaurants" component={ResResults} />
         </div>
-
-      </Router>
     )
 
   }

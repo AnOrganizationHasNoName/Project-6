@@ -10,7 +10,7 @@ export default class MeetupInfo extends React.Component {
   }
   render() {
     return (
-      <Link to="/meetup-restaurants" onClick={this.handleClick}>
+  
       <div className="outerDiv">
         <ul className="meetupContent">
           <li><h2>{this.props.data.name}</h2></li>
@@ -25,9 +25,12 @@ export default class MeetupInfo extends React.Component {
           <li>
             <p>Meetup Date: {getDate(this.props.data.time)}</p>
           </li>
+          <li>
+            <button onClick={this.handleClick}>Find Restaurants</button>
+          </li>
         </ul>
       </div>
-      </Link>
+      
     )
   }
 }

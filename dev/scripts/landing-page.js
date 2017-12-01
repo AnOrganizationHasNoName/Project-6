@@ -87,7 +87,7 @@ export default class LandingPage extends React.Component {
                         </select>
                     </li>
                     <li>
-                        <Link to="/meetups" onSubmit={this.handleSubmit}>Search</Link>
+                        <button onSubmit={this.handleSubmit}>Search</button>
                     </li>
                 </ul>
             </form>
