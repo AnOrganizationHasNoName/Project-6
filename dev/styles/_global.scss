@@ -1,9 +1,42 @@
+@import "./colours";
 
 //Variables
 
 $h2-size: 20px;
 
 //general styles
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    background: $bodyColor;
+}
+
+// wrappers
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.inner-wrapper {
+    width: 75%;
+    margin: 0 auto;
+}
+
+// Typography
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: $h1Color;
+    font-size: 5rem; 
+}
 
 h2{
     font-size: $h2-size;
@@ -21,6 +54,7 @@ ul {
 }
 
 body{
+    
     border: 5px dotted orange;
     display: inline-block;
     padding: 20px;
@@ -57,9 +91,6 @@ body{
     }
 }
 
-.user-form{
-    border: 2px solid purple;
-}
 
 .meetupContent{
     border: 2px solid purple;
