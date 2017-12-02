@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Qs from 'qs';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Meetups from './meetup-info';
 import LandingPage from './landing-page';
 import Restaurants from './restaurants';
@@ -76,9 +76,6 @@ class App extends React.Component {
       const restaurants = res.map((res)=>{
         return res.data.result;
       })
-
-      console.log(restaurants);
-      
       this.setState({
         restaurants
       }) 
@@ -114,11 +111,27 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="wrapper">
-        <LandingPage formSubmit={this.getMeetups} />
-        <Meetups data={this.state.meetups} onClick={this.getRestaurantRefs} />
-        <Restaurants data={this.state.restaurants} />
-      </div>
+      <Router>
+        <div className="wrapper">
+          <Switch>
+            <Route
+              exact path="/"
+              render={props => <LandingPage {...props} formSubmit={this.getMeetups} />}
+            />
+            <Route
+              exact path="/meetups"
+              render={props => <Meetups {...props} data={this.state.meetups} onClick={this.getRestaurantRefs} />}
+            />
+            <Route
+              exact path="/restaurants"
+              render={props => <Restaurants {...props} data={this.state.restaurants}/>}
+            />
+          </Switch>
+          {/* <LandingPage formSubmit={this.getMeetups} /> */}
+          {/* <Meetups data={this.state.meetups} onClick={this.getRestaurantRefs} /> */}
+          {/* <Restaurants data={this.state.restaurants} /> */}
+        </div>
+      </Router>
     )
   }
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import CountriesArray from './country-array';
 import Qs from 'qs';
 
@@ -77,13 +78,14 @@ export default class LandingPage extends React.Component {
                     </li>
                     <li>
                         <select name="categoryInput" onChange={this.handleChange}>
-                            {this.state.meetupCategories.map((category) => {
-                                return <option value={category.id} key={category.id}>{category.name}</option>
-                            })}
+                            {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>
+                            )}
                         </select>
                     </li>
                     <li>
-                        <button onSubmit={this.handleSubmit}>Search</button>
+                        <button>
+                            <Link to="/meetups">Search</Link>
+                        </button>
                     </li>
                 </ul>
             </form>
