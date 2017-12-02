@@ -32,7 +32,6 @@ class App extends React.Component {
         params: {
           key: 'AIzaSyCpT2X1_HiFf3PJxmbYeIPpSIHGrdUTnmM',
           type: 'restaurant',
-          location: '43.667252, -79.733551',
           location: `${lat}, ${lon}`,
           radius: 1000,
         },
@@ -42,8 +41,7 @@ class App extends React.Component {
         xmlToJSON: false
       }
     }).then(res => {
-      const restaurantRefs = res.data.results.map(restaurant=> restaurant.reference);
-      // console.log(restaurantRefs);
+      const restaurantRefs = res.data.results.map(restaurant => restaurant.reference);
       this.getRestaurantDetails(restaurantRefs);
     });
   }
@@ -73,9 +71,7 @@ class App extends React.Component {
       });
     })
     Promise.all(restaurantDetails).then(res =>{
-      const restaurants = res.map((res)=>{
-        return res.data.result;
-      })
+      const restaurants = res.map(res => res.data.result);
       this.setState({
         restaurants
       }) 
@@ -127,9 +123,6 @@ class App extends React.Component {
               render={props => <Restaurants {...props} data={this.state.restaurants}/>}
             />
           </Switch>
-          {/* <LandingPage formSubmit={this.getMeetups} /> */}
-          {/* <Meetups data={this.state.meetups} onClick={this.getRestaurantRefs} /> */}
-          {/* <Restaurants data={this.state.restaurants} /> */}
         </div>
       </Router>
     )

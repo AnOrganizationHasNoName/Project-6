@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import CountriesArray from './country-array';
 import Qs from 'qs';
 
@@ -83,9 +83,7 @@ export default class LandingPage extends React.Component {
                         </select>
                     </li>
                     <li>
-                        <button>
-                            <Link to="/meetups">Search</Link>
-                        </button>
+                        <button><Link to="/meetups">Search</Link></button>
                     </li>
                 </ul>
             </form>
