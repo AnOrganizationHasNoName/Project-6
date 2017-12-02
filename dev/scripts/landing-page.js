@@ -64,10 +64,13 @@ export default class LandingPage extends React.Component {
 
     render() {
         return (
+            <div className="wrapper">
+                <TitleOnLandingPage />
+                <div className="inner-wrapper">
             <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                <ul>
-                    <li>
+
                         <select name="country" onChange={this.handleChange}>
+                            <option disabled selected>Country</option>
                             {CountriesArray.map((country, i) =>
                                 <option
                                     value={country.code}
@@ -77,8 +80,6 @@ export default class LandingPage extends React.Component {
                                 </option>)
                             }
                         </select>
-                    </li>
-                    <li>
                         <input type="text"
                             name="cityInput"
                             className="cityInput"
@@ -86,18 +87,16 @@ export default class LandingPage extends React.Component {
                             onChange={this.handleChange}
                             value={this.state.cityInput}
                         />
-                    </li>
-                    <li>
                         <select name="categoryInput" onChange={this.handleChange}>
+                            <option disabled selected>Category</option>
                             {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>
                             )}
                         </select>
-                    </li>
-                    <li>
                         <button><Link to="/meetups">Search</Link></button>
-                    </li>
-                </ul>
-            </form>
+                     </form>
+                </div>
+                <LandingPageFooter />
+            </div>  
         )
     }
 }
