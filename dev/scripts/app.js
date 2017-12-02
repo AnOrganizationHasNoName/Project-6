@@ -18,9 +18,9 @@ class App extends React.Component {
       showInput: true,
       showMeetup: true
     }
-    this.getMeetups = this.getMeetups.bind(this);
+/*     this.getMeetups = this.getMeetups.bind(this);
     this.getRestaurants = this.getRestaurants.bind(this);
-    this.handleClick = this.getMeetups.bind(this);
+    this.handleClick = this.getMeetups.bind(this); */
   }
   getRestaurantRefs(lat, lon) {
     axios({
@@ -87,10 +87,6 @@ class App extends React.Component {
         return res.data.result;
       })
       console.log(restaurants);
-<<<<<<< HEAD
-=======
-
->>>>>>> c059da39882359a877086d2206061e55bfe84e63
       this.setState({
         restaurants
       })
@@ -136,10 +132,6 @@ class App extends React.Component {
         <Meetups data={this.state.meetups} onClick={this.getRestaurantRefs} />
         <Restaurants data={this.state.restaurants} /> */}
       </div>
-<<<<<<< HEAD
-=======
-
->>>>>>> c059da39882359a877086d2206061e55bfe84e63
     )
   }
 }

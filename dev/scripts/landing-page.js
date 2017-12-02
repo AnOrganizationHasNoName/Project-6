@@ -27,17 +27,10 @@ export default class LandingPage extends React.Component {
     handleChange(e) {
         this.setState({
             [e.target.name]: e.target.value,
-<<<<<<< HEAD
-
-        })
-    }
-
-=======
            
         })
     }
     
->>>>>>> c059da39882359a877086d2206061e55bfe84e63
     componentDidMount() {
         axios({
             method: 'GET',
@@ -66,45 +59,6 @@ export default class LandingPage extends React.Component {
 
     render() {
         return (
-<<<<<<< HEAD
-            <div>
-                <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                    <ul>
-                        <li>
-                            <select name="country" onChange={this.handleChange}>
-                                {CountriesArray.map((country, i) =>
-                                    <option
-                                        value={country.code}
-                                        key={`country-${i}`}
-                                    >
-                                        {country.name}
-                                    </option>)
-                                }
-                            </select>
-                        </li>
-                        <li>
-                            <input type="text"
-                                name="cityInput"
-                                className="cityInput"
-                                placeholder="City"
-                                onChange={this.handleChange}
-                                value={this.state.cityInput}
-                            />
-                        </li>
-                        <li>
-                            <select name="categoryInput" onChange={this.handleChange}>
-                                {this.state.meetupCategories.map((category) => {
-                                    return <option value={category.id} key={category.id}>{category.name}</option>
-                                })}
-                            </select>
-                        </li>
-                        <li>
-                            <button onSubmit={this.handleSubmit}>Search</button>
-                        </li>
-                    </ul>
-                </form>
-            </div>
-=======
         <div>   
             <form action="" className="user-form" onSubmit={this.handleSubmit}>
                 <ul>
@@ -142,7 +96,6 @@ export default class LandingPage extends React.Component {
                 </ul>
             </form>
          </div>   
->>>>>>> c059da39882359a877086d2206061e55bfe84e63
         )
     }
 }
