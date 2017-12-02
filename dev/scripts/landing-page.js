@@ -3,7 +3,6 @@ import axios from "axios";
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import CountriesArray from './country-array';
 import Qs from 'qs';
-
 export default class LandingPage extends React.Component {
     constructor(props) {
         super(props);
@@ -20,7 +19,7 @@ export default class LandingPage extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formSubmit(this.state.cityInput, this.state.country, this.state.categoryInput);
-        this.setState={
+        this.setState = {
             showRes: false
         }
     }
