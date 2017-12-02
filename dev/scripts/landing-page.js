@@ -1,8 +1,13 @@
 import React from "react";
 import axios from "axios";
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
+import { Link } from 'react-router-dom';
 import CountriesArray from './country-array';
 import Qs from 'qs';
+import TitleOnLandingPage from "./landing-page-header";
+import LandingPageFooter from "./landing-page-footer";
+
+
 export default class LandingPage extends React.Component {
     constructor(props) {
         super(props);
@@ -59,11 +64,13 @@ export default class LandingPage extends React.Component {
 
     render() {
         return (
-        <div>   
+            <div className="wrapper">
+                <TitleOnLandingPage />
+                <div className="inner-wrapper">
             <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                <ul>
-                    <li>
+
                         <select name="country" onChange={this.handleChange}>
+                            <option disabled selected>Country</option>
                             {CountriesArray.map((country, i) =>
                                 <option
                                     value={country.code}
@@ -73,8 +80,6 @@ export default class LandingPage extends React.Component {
                                 </option>)
                             }
                         </select>
-                    </li>
-                    <li>
                         <input type="text"
                             name="cityInput"
                             className="cityInput"
@@ -82,20 +87,16 @@ export default class LandingPage extends React.Component {
                             onChange={this.handleChange}
                             value={this.state.cityInput}
                         />
-                    </li>
-                    <li>
                         <select name="categoryInput" onChange={this.handleChange}>
-                            {this.state.meetupCategories.map((category) => {
-                                return <option value={category.id} key={category.id}>{category.name}</option>
-                            })}
+                            <option disabled selected>Category</option>
+                            {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>
+                            )}
                         </select>
-                    </li>
-                    <li>
-                        <button onSubmit={this.handleSubmit}>Search</button>
-                    </li>
-                </ul>
-            </form>
-         </div>   
+                        <button><Link to="/meetups">Search</Link></button>
+                     </form>
+                </div>
+                <LandingPageFooter />
+            </div>  
         )
     }
 }
