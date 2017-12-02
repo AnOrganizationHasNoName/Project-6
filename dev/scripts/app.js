@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Qs from 'qs';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Meetups from './meetup-info';
 import LandingPage from './landing-page';
 import Restaurants from './restaurants';
@@ -35,7 +36,6 @@ class App extends React.Component {
         params: {
           key: 'AIzaSyCpT2X1_HiFf3PJxmbYeIPpSIHGrdUTnmM',
           type: 'restaurant',
-          location: '43.667252, -79.733551',
           location: `${lat}, ${lon}`,
           radius: 1000,
         },
@@ -46,7 +46,6 @@ class App extends React.Component {
       }
     }).then(res => {
       const restaurantRefs = res.data.results.map(restaurant => restaurant.reference);
-      // console.log(restaurantRefs);
       this.getRestaurantDetails(restaurantRefs);
       this.setState({
         showMeetup: false
@@ -82,11 +81,8 @@ class App extends React.Component {
         }
       });
     })
-    Promise.all(restaurantDetails).then(res => {
-      const restaurants = res.map((res) => {
-        return res.data.result;
-      })
-      console.log(restaurants);
+    Promise.all(restaurantDetails).then(res =>{
+      const restaurants = res.map(res => res.data.result);
       this.setState({
         restaurants
       })
@@ -126,12 +122,24 @@ class App extends React.Component {
   }
   render() {
     return (
-      <div className="wrapper">
-        {this.state.showInput ? <LandingPage formSubmit={this.getMeetups} displayState={this.state.showINput} /> : <Meetups data={this.state.meetups} onClick={this.getRestaurants} />}
-        {/*         <LandingPage formSubmit={this.getMeetups} />
-        <Meetups data={this.state.meetups} onClick={this.getRestaurantRefs} />
-        <Restaurants data={this.state.restaurants} /> */}
-      </div>
+      <Router>
+        <div className="wrapper">
+          <Switch>
+            <Route
+              exact path="/"
+              render={props => <LandingPage {...props} formSubmit={this.getMeetups} />}
+            />
+            <Route
+              exact path="/meetups"
+              render={props => <Meetups {...props} data={this.state.meetups} onClick={this.getRestaurantRefs} />}
+            />
+            <Route
+              exact path="/restaurants"
+              render={props => <Restaurants {...props} data={this.state.restaurants}/>}
+            />
+          </Switch>
+        </div>
+      </Router>
     )
   }
 }
