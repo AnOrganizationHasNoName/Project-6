@@ -76,7 +76,7 @@ class App extends React.Component {
       })
     })
   }
-  getMeetups(city, country, category) {
+  getMeetups(lat, lon, category) {
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -88,8 +88,8 @@ class App extends React.Component {
         reqUrl: 'https://api.meetup.com/2/open_events',
         params: {
           key: '6a49717012332a5d284f3c775460653',
-          city: city,
-          country: country,
+          lat: lat,
+          lon: lon,
           category: category,
         },
         proxyHeaders: {

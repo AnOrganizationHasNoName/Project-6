@@ -12,8 +12,9 @@ export default class LandingPage extends React.Component {
         this.state = {
             locationInput: '',
             categoryInput: 1,
-            // country: '',
             meetupCategories: [],
+            lat: 0,
+            lon: 0
         }
         this.getLatLng = this.getLatLng.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,13 +23,12 @@ export default class LandingPage extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        // console.log(this.state.locationInput);
         const location = this.state.locationInput.replace(/\s/g, "").split(',');
-        console.log(location);
         const locality = location[0];
         const administrativeArea = location[1];
         const country = location[2];
         this.getLatLng(locality, administrativeArea, country);
+        this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
     }
     getLatLng(locality, administrativeArea, country) {
         axios({
@@ -50,11 +50,12 @@ export default class LandingPage extends React.Component {
                 xmlToJSON: false
             }
         }).then((res) => {
-            // console.log(res.data.results[0].geometry.location);
             const lat = res.data.results[0].geometry.location.lat;
-            const lat = res.data.results[0].geometry.location.lng;
-            console.log(lat);
-            console.log(lng);
+            const lng = res.data.results[0].geometry.location.lng;
+            this.setState({
+                lat: lat,
+                lon: lng
+            }) 
         });
     }
     handleBlur(e) {
@@ -125,24 +126,6 @@ export default class LandingPage extends React.Component {
                         {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>
                         )}
                     </select>
-                        {/* <select name="country" onChange={this.handleChange}>
-                            <option disabled selected>Country</option>
-                            {CountriesArray.map((country, i) =>
-                                <option
-                                    value={country.code}
-                                    key={`country-${i}`}
-                                >
-                                    {country.name}
-                                </option>)
-                            }
-                        </select>
-                        <input type="text"
-                            name="cityInput"
-                            className="cityInput"
-                            placeholder="City"
-                            onChange={this.handleChange}
-                            value={this.state.cityInput}
-                        /> */}
                         <button><Link to="/meetups">Search</Link></button>
                      </form>
                 </div>
