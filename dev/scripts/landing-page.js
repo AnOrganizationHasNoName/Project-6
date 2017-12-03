@@ -28,6 +28,17 @@ export default class LandingPage extends React.Component {
         })
     }
     componentDidMount() {
+        var defaultBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(-90, -180),
+            new google.maps.LatLng(90, 180));
+
+        var input = document.getElementById('searchTextField');
+        var options = {
+            bounds: defaultBounds,
+            types: ['(cities)'],
+        };
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
+
         axios({
             method: 'GET',
             url: 'http://proxy.hackeryou.com',
@@ -58,7 +69,7 @@ export default class LandingPage extends React.Component {
                 <TitleOnLandingPage />
                 <div className="inner-wrapper">
                   <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                        <select name="country" onChange={this.handleChange}>
+                        {/* <select name="country" onChange={this.handleChange}>
                             <option disabled selected>Country</option>
                             {CountriesArray.map((country, i) =>
                                 <option
@@ -75,7 +86,14 @@ export default class LandingPage extends React.Component {
                             placeholder="City"
                             onChange={this.handleChange}
                             value={this.state.cityInput}
+                        /> */}
+                        <input 
+                            id="searchTextField"
+                            type="text"
+                            size="50"
+                            placeholder="Enter a city"
                         />
+
                         <select name="categoryInput" onChange={this.handleChange}>
                             <option disabled selected>Category</option>
                             {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>
