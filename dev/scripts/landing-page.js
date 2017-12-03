@@ -49,7 +49,7 @@ export default class LandingPage extends React.Component {
                 },
                 xmlToJSON: false
             }
-        }).then((res) => {
+        }).then(res => {
             const lat = res.data.results[0].geometry.location.lat;
             const lng = res.data.results[0].geometry.location.lng;
             this.setState({
@@ -121,8 +121,8 @@ export default class LandingPage extends React.Component {
                         onBlur={this.handleBlur}
                         required
                     />
-                    <select name="categoryInput" onChange={this.handleChange} required>
-                        <option disabled selected>Category</option>
+                    <select name="categoryInput" required onChange={this.handleChange}>
+                        {/* <option disabled>Category</option> */}
                         {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>
                         )}
                     </select>
