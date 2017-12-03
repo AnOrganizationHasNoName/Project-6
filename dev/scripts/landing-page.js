@@ -49,7 +49,7 @@ export default class LandingPage extends React.Component {
                 },
                 xmlToJSON: false
             }
-        }).then((res) => {
+        }).then(res => {
             const lat = res.data.results[0].geometry.location.lat;
             const lng = res.data.results[0].geometry.location.lng;
             this.setState({
