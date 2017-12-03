@@ -10,17 +10,59 @@ export default class LandingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cityInput: '',
+            locationInput: '',
             categoryInput: 1,
-            country: '',
             meetupCategories: [],
+            lat: 0,
+            lon: 0
         }
+        this.getLatLng = this.getLatLng.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.handleBlur = this.handleBlur.bind(this);
     }
     handleSubmit(e) {
         e.preventDefault();
-        this.props.formSubmit(this.state.cityInput, this.state.country, this.state.categoryInput);
+        const location = this.state.locationInput.replace(/\s/g, "").split(',');
+        const locality = location[0];
+        const administrativeArea = location[1];
+        const country = location[2];
+        this.getLatLng(locality, administrativeArea, country);
+        this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
+    }
+    getLatLng(locality, administrativeArea, country) {
+        axios({
+            method: 'GET',
+            url: 'http://proxy.hackeryou.com',
+            dataResponse: 'json',
+            paramsSerializer: function (params) {
+                return Qs.stringify(params, { arrayFormat: 'brackets' })
+            },
+            params: {
+                reqUrl: 'https://maps.googleapis.com/maps/api/geocode/json',
+                params: {
+                    key: 'AIzaSyAG-UVMFM_gjgiNy-bO4GyaosWjbGN3Cj4',
+                    components: `locality:${locality}|administrative_area:${administrativeArea}|country:${country}`,
+                },
+                proxyHeaders: {
+                    'header_params': 'value'
+                },
+                xmlToJSON: false
+            }
+        }).then((res) => {
+            const lat = res.data.results[0].geometry.location.lat;
+            const lng = res.data.results[0].geometry.location.lng;
+            this.setState({
+                lat: lat,
+                lon: lng
+            }) 
+        });
+    }
+    handleBlur(e) {
+        // when the user moves away from the input
+        this.setState({
+            [e.target.name]: e.target.value,
+        })
     }
     handleChange(e) {
         this.setState({
@@ -28,6 +70,18 @@ export default class LandingPage extends React.Component {
         })
     }
     componentDidMount() {
+        // initializing google autocomplete 
+        var defaultBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(-90, -180),
+            new google.maps.LatLng(90, 180));
+
+        var input = document.getElementById('searchTextField');
+        var options = {
+            bounds: defaultBounds,
+            types: ['(cities)'],
+        };
+        var autocomplete = new google.maps.places.Autocomplete(input, options);
+        // ajax request for meetup categories
         axios({
             method: 'GET',
             url: 'http://proxy.hackeryou.com',
@@ -57,31 +111,21 @@ export default class LandingPage extends React.Component {
             <div className="wrapper">
                 <TitleOnLandingPage />
                 <div className="innerWrapper">
-                  <form action="" className="userForm" onSubmit={this.handleSubmit}>
-                        <select name="country" onChange={this.handleChange}>
-                            <option disabled selected>Country</option>
-                            {CountriesArray.map((country, i) =>
-                                <option
-                                    value={country.code}
-                                    key={`country-${i}`}
-                                >
-                                    {country.name}
-                                </option>)
-                            }
-                        </select>
-                        <input type="text"
-                            name="cityInput"
-                            className="cityInput"
-                            placeholder="City"
-                            onChange={this.handleChange}
-                            value={this.state.cityInput}
-                        />
-                        <select name="categoryInput" onChange={this.handleChange}>
-                            <option disabled selected>Category</option>
-                            {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>
-                            )}
-                        </select>
-                        <button><Link to="/meetups">Search</Link></button>
+                    <form action="" className="user-form" onSubmit={this.handleSubmit}>
+                      <input 
+                          id="searchTextField"
+                          type="text"
+                          size="50"
+                          placeholder="Enter a city"
+                          name="locationInput"
+                          onBlur={this.handleBlur}
+                          required
+                      />
+                      <select name="categoryInput" onChange={this.handleChange} required>
+                          {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>
+                          )}
+                      </select>
+                      <button><Link to="/meetups">Search</Link></button>
                      </form>
                 </div>
                 <LandingPageFooter />
