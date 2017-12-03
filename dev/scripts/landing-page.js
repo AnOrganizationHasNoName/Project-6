@@ -56,8 +56,8 @@ export default class LandingPage extends React.Component {
         return (
             <div className="wrapper">
                 <TitleOnLandingPage />
-                <div className="inner-wrapper">
-                  <form action="" className="user-form" onSubmit={this.handleSubmit}>
+                <div className="innerWrapper">
+                  <form action="" className="userForm" onSubmit={this.handleSubmit}>
                         <select name="country" onChange={this.handleChange}>
                             <option disabled selected>Country</option>
                             {CountriesArray.map((country, i) =>
