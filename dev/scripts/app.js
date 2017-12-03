@@ -16,12 +16,7 @@ class App extends React.Component {
     this.state = {
       meetups: [],
       restaurants: [],
-      showInput: true,
-      showMeetup: true
     }
-/*     this.getMeetups = this.getMeetups.bind(this);
-    this.getRestaurants = this.getRestaurants.bind(this);
-    this.handleClick = this.getMeetups.bind(this); */
   }
   getRestaurantRefs(lat, lon) {
     axios({
@@ -47,10 +42,6 @@ class App extends React.Component {
     }).then(res => {
       const restaurantRefs = res.data.results.map(restaurant => restaurant.reference);
       this.getRestaurantDetails(restaurantRefs);
-      this.setState({
-        showMeetup: false
-      })
-      { this.state.showMeetup ? <Meetups /> : <Restaurants data={this.state.restaurants} /> }
     });
 
   }
@@ -60,9 +51,6 @@ class App extends React.Component {
     // for each of the restaurant ids run an axios request
     // store each of these ajax requests in an array
     // use promise.all on this array of ajax requests 
-    this.setState({
-      showInput: false
-    })
     const restaurantDetails = restaurantRefs.map(restaurantRef => {
       return axios({
         method: 'GET',
@@ -89,9 +77,6 @@ class App extends React.Component {
     })
   }
   getMeetups(city, country, category) {
-    this.setState({
-      showInput: false
-    })
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -114,9 +99,8 @@ class App extends React.Component {
       }
     }).then(res => {
       const meetups = res.data.results.filter(meetup => meetup.venue !== undefined);
-      console.log(this)
       this.setState({
-        meetups,
+        meetups
       })
     });
   }
