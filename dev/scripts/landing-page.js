@@ -81,6 +81,15 @@ export default class LandingPage extends React.Component {
             types: ['(cities)'],
         };
         var autocomplete = new google.maps.places.Autocomplete(input, options);
+
+        google.maps.event.addListener(autocomplete, `place_changed`, () => {
+            var place = autocomplete.getPlace();
+            var address = place.formatted_address;
+            var latitude = place.geometry.location.lat();
+            var longitude = place.geometry.location.lng();
+            console.log(place);
+        });
+
         // ajax request for meetup categories
         axios({
             method: 'GET',
@@ -110,23 +119,22 @@ export default class LandingPage extends React.Component {
         return (
             <div className="wrapper">
                 <TitleOnLandingPage />
-                <div className="inner-wrapper">
-                  <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                    <input 
-                        id="searchTextField"
-                        type="text"
-                        size="50"
-                        placeholder="Enter a city"
-                        name="locationInput"
-                        onBlur={this.handleBlur}
-                        required
-                    />
-                    <select name="categoryInput" required onChange={this.handleChange}>
-                        {/* <option disabled>Category</option> */}
-                        {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>
-                        )}
-                    </select>
-                        <button><Link to="/meetups">Search</Link></button>
+                <div className="innerWrapper">
+                    <form action="" className="user-form" onSubmit={this.handleSubmit}>
+                      <input 
+                          id="searchTextField"
+                          type="text"
+                          size="50"
+                          placeholder="Enter a city"
+                          name="locationInput"
+                          onBlur={this.handleBlur}
+                          required
+                      />
+                      <select name="categoryInput" onChange={this.handleChange} required>
+                          {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>
+                          )}
+                      </select>
+                      <button><Link to="/meetups">Search</Link></button>
                      </form>
                 </div>
                 <LandingPageFooter />
