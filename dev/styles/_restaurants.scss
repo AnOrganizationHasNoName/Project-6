@@ -3,3 +3,11 @@
         @include tile;
     }
 }
+
+body{
+    background: $h1Color;
+}
+
+.restaurants .restaurant{
+    border: 2px dotted purple;
+}
