@@ -4,6 +4,8 @@ import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { Link } from 'react-router-dom';
 import CountriesArray from './country-array';
 import Qs from 'qs';
+import TitleOnLandingPage from './landing-page-header';
+import LandingPageFooter from './landing-page-footer';
 
 export default class LandingPage extends React.Component {
     constructor(props) {
