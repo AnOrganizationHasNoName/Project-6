@@ -1,13 +1,13 @@
 import React from "react";
 import axios from "axios";
 import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import CountriesArray from './country-array';
 import Qs from 'qs';
 import TitleOnLandingPage from './landing-page-header';
 import LandingPageFooter from './landing-page-footer';
 
-export default class LandingPage extends React.Component {
+class LandingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,6 +22,7 @@ export default class LandingPage extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
+        this.props.history.push('/meetups');
     }
     handleChange(e) {
         this.setState({
@@ -94,7 +95,10 @@ export default class LandingPage extends React.Component {
                       <select name="categoryInput" onChange={this.handleChange} required>
                         {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
                       </select>
-                      <button><Link to="/meetups">Search</Link></button>
+                      {/* <label htmlFor="startDate">Events between:</label>
+                      <input type="date" id="startDate" required required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+                      <input type="date" id="endDate" required required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/> */}
+                      <button>Search</button>
                      </form>
                 </div>
                 <LandingPageFooter />
@@ -102,3 +106,5 @@ export default class LandingPage extends React.Component {
         )
     }
 }
+
+export default withRouter(LandingPage);
