@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Meetups from './meetup-info';
 import LandingPage from './landing-page';
 import Restaurants from './restaurants';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -43,11 +44,11 @@ class App extends React.Component {
       const restaurantRefs = res.data.results.map(restaurant => restaurant.reference);
       this.getRestaurantDetails(restaurantRefs);
     });
-
   }
   getRestaurantDetails(restaurantRefs) {
     // this method will be called in the getRestaurantRefs function where the restaurantRefs information lives
     // therefore, make a placeholder for now
+
     // for each of the restaurant ids run an axios request
     // store each of these ajax requests in an array
     // use promise.all on this array of ajax requests 
@@ -73,10 +74,10 @@ class App extends React.Component {
       const restaurants = res.map(res => res.data.result);
       this.setState({
         restaurants
-      })
+      }) 
     })
   }
-  getMeetups(lat, lon, category) {
+  getMeetups(city, country, category) {
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -88,8 +89,8 @@ class App extends React.Component {
         reqUrl: 'https://api.meetup.com/2/open_events',
         params: {
           key: '6a49717012332a5d284f3c775460653',
-          lat: lat,
-          lon: lon,
+          city: city,
+          country: country,
           category: category,
         },
         proxyHeaders: {
@@ -127,5 +128,5 @@ class App extends React.Component {
     )
   }
 }
-ReactDOM.render(<App />, document.getElementById('app'));
 
+ReactDOM.render(<App />, document.getElementById('app'));
