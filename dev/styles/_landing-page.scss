@@ -2,7 +2,7 @@
 
 // h1 styles are located on global.scss
 
-.appDescription {
+.app-description {
     text-align: center;
     color: white;
     margin: 5% 0;
@@ -10,7 +10,7 @@
 
 // form inputs
 
-.userForm {
+.user-form {
     margin: 0 auto;
     max-width: 100%;
     select, input {
@@ -33,4 +33,3 @@ footer {
     color: $footerText;
     margin-top: 10%;
 }
-

@@ -89,7 +89,6 @@ class App extends React.Component {
         reqUrl: 'https://api.meetup.com/2/open_events',
         params: {
           key: '6a49717012332a5d284f3c775460653',
-          text_format: 'plain',
           city: city,
           country: country,
           category: category,
@@ -100,7 +99,6 @@ class App extends React.Component {
         xmlToJSON: false
       }
     }).then(res => {
-      console.log(res.data.results);
       const meetups = res.data.results.filter(meetup => meetup.venue !== undefined);
       this.setState({
         meetups
