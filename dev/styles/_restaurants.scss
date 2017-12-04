@@ -10,4 +10,20 @@ body{
 
 .restaurants .restaurant{
     border: 2px dotted purple;
+=======
+/* .restaurants {
+    .restaurant {
+        @include tile;
+    }
+} */
+
+.restaurants {
+    li {
+        width: 48%;
+        float: left;
+        min-height: 135px;
+        max-height: 175px;
+        background: white;
+        margin: 0.5%;
+    }
 }
