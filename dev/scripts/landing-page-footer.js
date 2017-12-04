@@ -3,7 +3,7 @@ import React from "react";
 const LandingPageFooter = () => {
     return (
         <footer>
-            <div className="innerWrapper">
+            <div className="inner-wrapper">
                 <div className="copyright">
                     <p>&copy; 2017 </p>
                 </div>

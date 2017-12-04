@@ -50,7 +50,7 @@ export default class Meetups extends React.Component {
                 </div>
               </div>
             </section>
-{/*               <p>{meetup.venue.name}, {meetup.venue.address_1}</p>
+              {/*               <p>{meetup.venue.name}, {meetup.venue.address_1}</p>
               <p>Meetup Time: {getTime(meetup.time)}</p>
               <p>Meetup Date: {getDate(meetup.time)}</p>
               <p>Event URL: <a href={meetup.event_url}>More Info Here</a></p>
