@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default class Meetups extends React.Component {
   constructor() {
-    super(); 
+    super();
   }
   render() {
     return (
