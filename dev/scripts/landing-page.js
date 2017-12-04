@@ -21,9 +21,6 @@ class LandingPage extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault();
-        this.setState({
-            loading: true
-        })
         this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
         this.props.history.push('/meetups');
     }
@@ -86,7 +83,7 @@ class LandingPage extends React.Component {
             <div className="wrapper">
                 <TitleOnLandingPage />
                 <div className="innerWrapper">
-                    <form action="" className="user-form" onSubmit={this.handleSubmit} loading={this.state.loading}>
+                    <form action="" className="user-form" onSubmit={this.handleSubmit}>
                       <input 
                           id="searchTextField"
                           type="text"
