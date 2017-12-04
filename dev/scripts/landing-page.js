@@ -95,6 +95,9 @@ class LandingPage extends React.Component {
                       <select name="categoryInput" onChange={this.handleChange} required>
                         {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
                       </select>
+                      {/* <label htmlFor="startDate">Events between:</label>
+                      <input type="date" id="startDate" required required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
+                      <input type="date" id="endDate" required required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/> */}
                       <button>Search</button>
                      </form>
                 </div>

@@ -1,4 +1,3 @@
-
 //Variables
 
 $h2-size: 20px;
@@ -21,6 +20,7 @@ ul {
 }
 
 body{
+    background: $bodyColor;
     border: 5px dotted orange;
     padding: 20px;
     max-width: 100%;
