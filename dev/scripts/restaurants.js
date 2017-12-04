@@ -7,9 +7,9 @@ class Restaurants extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="resOuter" >
                 <button><Link to="/">Return To Home</Link></button>
-                <ul className="restaurants">
+                <ul className="restaurants clearfix">
                     {this.props.data.map(restaurant => {
                         return <li key={restaurant.id} className="restaurant">
                         <section className="resHead">
@@ -51,7 +51,7 @@ class Restaurants extends React.Component {
                         </li>
                     })}
                 </ul>
-            </div>
+            </div>   
         )
     }
 }
