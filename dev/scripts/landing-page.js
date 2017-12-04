@@ -1,20 +1,18 @@
 import React from "react";
 import axios from "axios";
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { Link } from 'react-router-dom';
 import CountriesArray from './country-array';
 import Qs from 'qs';
-import TitleOnLandingPage from "./landing-page-header";
-import LandingPageFooter from "./landing-page-footer";
 
 export default class LandingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            locationInput: '',
+            cityInput: '',
             categoryInput: 1,
-            meetupCategories: [],
-            lat: 0,
-            lon: 0
+            country: '',
+            meetupCategories: []
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
@@ -25,7 +23,7 @@ export default class LandingPage extends React.Component {
     }
     handleChange(e) {
         this.setState({
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value
         })
     }
     componentDidMount() {
@@ -70,7 +68,7 @@ export default class LandingPage extends React.Component {
                 },
                 xmlToJSON: false
             }
-        }).then(res => {
+        }).then((res) => {
             const meetupCategories = res.data.results;
             this.setState({
                 meetupCategories
