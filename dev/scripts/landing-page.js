@@ -11,10 +11,10 @@ export default class LandingPage extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            cityInput: '',
             categoryInput: 1,
-            country: '',
-            meetupCategories: []
+            meetupCategories: [],
+            lat: 0,
+            lon: 0,
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
