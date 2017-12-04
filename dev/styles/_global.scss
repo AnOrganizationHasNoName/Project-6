@@ -1,14 +1,47 @@
 //Variables
 
-$h2-size: 20px;
-
 //general styles
 
-h2{
-    font-size: $h2-size;
+html {
+    font-size: 62.5%;
 }
 
-a{
+body {
+    font-family: 'Lato', sans-serif;
+    width: 100%;
+    margin: 0 auto;
+    background: $bodyColor;
+    border: 5px dotted orange;
+    padding: 20px;
+    max-width: 100%;
+}
+
+// wrappers
+
+.wrapper {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.inner-wrapper {
+    width: 75%;
+    margin: 0 auto;
+}
+
+// Typography
+
+h1 {
+    text-align: center;
+    text-transform: uppercase;
+    color: $h1Color;
+    font-size: 5rem; 
+}
+
+h2 {
+    font-size: 2.0rem;
+}
+
+a {
     word-wrap: break-word;
 }
 
@@ -17,13 +50,6 @@ ul {
     list-style: none;
     padding: 20px;
     clear: both;
-}
-
-body{
-    background: $bodyColor;
-    border: 5px dotted orange;
-    padding: 20px;
-    max-width: 100%;
 }
 
 //class based styling
@@ -49,15 +75,11 @@ body{
     }
     @media(max-width: 414px){
         width: 100%;
-        height:400px;
-            h2{
-                font-size: 18px;
-            }
+        height: 400px;
+        h2{
+            font-size: 1.8rem;
+        }
     }
-}
-
-.user-form{
-    border: 2px solid purple;
 }
 
 .meetupContent{
