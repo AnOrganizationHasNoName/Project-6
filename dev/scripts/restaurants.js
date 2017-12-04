@@ -10,10 +10,9 @@ class Restaurants extends React.Component {
     render() {
         if (this.props.loading) {
             return (
-                LoadingAnimation
+                <LoadingAnimation />
             )} else {
         return (
-<<<<<<< HEAD
                 <div className="resContainer">
                     <button><Link to="/">Return To Home</Link></button>
                     <ul className="restaurants">
@@ -31,7 +30,7 @@ class Restaurants extends React.Component {
                 </div>
             )
         }
-=======
+
             <div>
                 <button><Link to="/">Return To Home</Link></button>
                 <ul className="restaurants">
@@ -60,7 +59,7 @@ class Restaurants extends React.Component {
                             </div>
                             
                             <div className="resLinks">
-                                <div className="resURL">
+                            <div className="resURL">
                                     <button><a href={restaurant.website}>Visit Website</a></button>
                                 </div>
                                 <div className="resDirections">
@@ -68,17 +67,11 @@ class Restaurants extends React.Component {
                                 </div>
                             </div>
                         </section>
-                           {/*  <p>Address: {restaurant.vicinity}</p>
-                            <p>Phone Number: {restaurant.international_phone_number}</p>
-                            <p>Google Rating: {restaurant.rating}/5</p>
-                            <p>Website: <a href={restaurant.website}>{restaurant.website}</a></p>
-                            <p>Directions: <a href={restaurant.url}>{restaurant.url}</a></p> */}
                         </li>
                     })}
                 </ul>
             </div>
         )
->>>>>>> d79d77d45ba375f71423101942991eaf9b5d29ad
     }
 }
 

@@ -21,6 +21,9 @@ class LandingPage extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault();
+        this.setState({
+            loading: true
+        })
         this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
         this.props.history.push('/meetups');
     }

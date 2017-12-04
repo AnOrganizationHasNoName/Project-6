@@ -116,7 +116,7 @@ class App extends React.Component {
           <Switch>
             <Route
               exact path="/"
-              render={props => <LandingPage {...props} formSubmit={this.getMeetups} loading={this.state.loading}/>}
+              render={props => <LandingPage {...props} formSubmit={this.getMeetups} loading={this.state.loading} />}
             />
             <Route
               exact path="/meetups"
