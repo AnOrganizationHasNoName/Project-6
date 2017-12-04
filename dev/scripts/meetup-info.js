@@ -21,6 +21,27 @@ export default class Meetups extends React.Component {
               <section className="meetupHead">
                 <div className="meetupMainTitle">
                   <h2>{meetup.name}</h2>
+    return (
+      <div>
+        <button><Link to="/">Return To Home</Link></button>
+        <ul className="meetups clearfix">
+          {this.props.data.map(meetup => {
+            return  <li className="meetup clearfix" key={meetup.id}>
+            <section className="meetupHead">
+              <div className="meetupMainTitle">
+                <h2>{meetup.name}</h2>
+              </div>
+            </section>
+
+            <section className="meetupInfo clearfix">
+              <div className="meetupTags clearfix">
+                <div className="meetupTagsTitle clearfix">
+                  <h3>Venue: </h3>
+                  <p>{meetup.venue.name}</p>
+                </div>
+                <div className="meetupTagsTitle clearfix">
+                  <h3>Address: </h3>
+                  <p>{meetup.venue.address_1}</p>
                 </div>
               </section>
   
@@ -42,6 +63,18 @@ export default class Meetups extends React.Component {
                     <h3>Date: </h3>
                     <p>{getDate(meetup.time)}</p>
                   </div>
+                  <h3>Time</h3>
+                  <p>{getTime(meetup.time)}</p>
+                </div>
+                <div className="meetupTagsTitle clearfix">
+                  <h3>Date: </h3>
+                  <p>{getDate(meetup.time)}</p>
+                </div>
+              </div>
+
+              <div className="meetupLinks">
+                <div className="meetupURL">
+                  <button><a href={meetup.event_url}>Event Info</a></button>
                 </div>
   
                 <div className="meetupLinks">
