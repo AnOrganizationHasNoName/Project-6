@@ -17,6 +17,7 @@ class App extends React.Component {
     this.state = {
       meetups: [],
       restaurants: [],
+      loading: false,
     }
   }
   getRestaurantRefs(lat, lon) {
@@ -101,7 +102,8 @@ class App extends React.Component {
     }).then(res => {
       const meetups = res.data.results.filter(meetup => meetup.venue !== undefined);
       this.setState({
-        meetups
+        meetups,
+        loading: false
       })
     });
   }
@@ -112,11 +114,11 @@ class App extends React.Component {
           <Switch>
             <Route
               exact path="/"
-              render={props => <LandingPage {...props} formSubmit={this.getMeetups} />}
+              render={props => <LandingPage {...props} formSubmit={this.getMeetups} loading={this.state.loading}/>}
             />
             <Route
               exact path="/meetups"
-              render={props => <Meetups {...props} data={this.state.meetups} onClick={this.getRestaurantRefs} />}
+              render={props => <Meetups {...props} data={this.state.meetups} onClick={this.getRestaurantRefs} loading={this.state.loading} />}
             />
             <Route
               exact path="/restaurants"

@@ -22,6 +22,10 @@ export default class LandingPage extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
+        //loading animation
+        this.setState({
+            loading: true
+        })
     }
     handleChange(e) {
         this.setState({
@@ -82,7 +86,7 @@ export default class LandingPage extends React.Component {
             <div className="wrapper">
                 <TitleOnLandingPage />
                 <div className="innerWrapper">
-                    <form action="" className="user-form" onSubmit={this.handleSubmit}>
+                    <form action="" className="user-form" onSubmit={this.handleSubmit} loading={this.state.loading}>
                       <input 
                           id="searchTextField"
                           type="text"
