@@ -7,7 +7,7 @@ class Restaurants extends React.Component {
     }
     render() {
         return (
-            <div>
+            <div className="resContainer">
                 <button><Link to="/">Return To Home</Link></button>
                 <ul className="restaurants">
                     {this.props.data.map(restaurant => {
