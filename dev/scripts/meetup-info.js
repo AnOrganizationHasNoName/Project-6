@@ -24,7 +24,7 @@ export default class Meetups extends React.Component {
                   <h3>Venue: </h3>
                   <p>{meetup.venue.name}</p>
                 </div>
-                  <div className="meetupTagsTitle clearfix">
+                <div className="meetupTagsTitle clearfix">
                   <h3>Address: </h3>
                   <p>{meetup.venue.address_1}</p>
                 </div>
@@ -32,7 +32,7 @@ export default class Meetups extends React.Component {
                   <h3>Time</h3>
                   <p>{getTime(meetup.time)}</p>
                 </div>
-                  <div className="meetupTagsTitle clearfix">
+                <div className="meetupTagsTitle clearfix">
                   <h3>Date: </h3>
                   <p>{getDate(meetup.time)}</p>
                 </div>
