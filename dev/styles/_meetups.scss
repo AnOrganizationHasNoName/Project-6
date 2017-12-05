@@ -1,10 +1,39 @@
 @import "./colours";
 
 
-.meetups {
-    border: 2px solid pink;
-   
+// .body{
+//     background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url("../../assets/landing-pagebg.jpg") ;
+//     background-repeat: no-repeat;
+//     width: 100vw;
+//     height: 100vh;
+//     background-position: center;
+//     background-size: cover;
+//     background-position: fixed;
+
+// }
+
+.wrapper{
+    border: 3px dotted red;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url("../../assets/landing-pagebg.jpg") ;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    
 }
+.homebutton{
+    width: 200px;
+}
+ button{
+    @include meetup-Button;
+        a{
+            font-size: 1.7em;
+            font-family: 'Lato', sans-serif;
+            color: white;
+        }
+}
+
 
  button{
     @include meetup-Button;
