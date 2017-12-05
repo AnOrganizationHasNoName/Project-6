@@ -6,11 +6,13 @@
 }
 
 @mixin meetup-Button{
-    padding: 5px;
-    border-radius: 15px;
+    padding: 10px;
+    border-radius: 20px;
     text-align: center;
     text-decoration: none;
     background-color: $buttonBorder;
+    width: 100%;
+    margin: 5px;
         a{
             text-decoration:none;
             
@@ -25,11 +27,12 @@
 }
 
 @mixin landing-Button{
-    padding: 20px 60px;
+    width: 25%;
+    padding: 22px 60px;
     text-align: center;
     text-decoration: none;
     background-color: #f49e4c;
-    border-radius: 0;
+    border-radius: 5px;
     border: none;
     font-size: 13px;
     text-transform: uppercase;
