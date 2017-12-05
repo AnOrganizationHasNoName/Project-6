@@ -18,7 +18,7 @@ export default class Meetups extends React.Component {
                 <h2>{meetup.name}</h2>
               </div>
               <div className="meetupInfoCont">
-                <span>Venue: </span>
+                <span>Venue: </span><p>{meetup.venue.name}, {meetup.venue.address_1}</p>
                 <span>Meetup Time: </span><p>{getTime(meetup.time)}</p>
                 <span>Meetup Date: </span><p>{getDate(meetup.time)}</p>
               </div>
