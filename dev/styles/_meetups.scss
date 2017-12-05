@@ -6,8 +6,8 @@
     }
 }
 
-button{
-    @include button;
+.meetupButton{
+    @include meetup-Button;
 }
 .meetups {
     li {

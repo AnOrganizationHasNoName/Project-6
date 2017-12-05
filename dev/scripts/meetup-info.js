@@ -43,7 +43,7 @@ export default class Meetups extends React.Component {
                     <button><a href={meetup.event_url}>Event Info</a></button>
                   </div>
                   <div className="findResLink">
-                    <button
+                    <button className="meetupButton"
                       onClick={() => this.props.onClick(meetup.venue.lat, meetup.venue.lon)}>
                       <Link to="/restaurants">Find Restaurants</Link>
                     </button>

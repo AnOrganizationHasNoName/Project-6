@@ -83,6 +83,9 @@ class LandingPage extends React.Component {
                 <TitleOnLandingPage />
                 <div className="innerWrapper">
                     <form action="" className="user-form" onSubmit={this.handleSubmit}>
+                        <select name="categoryInput" onChange={this.handleChange} required>
+                            {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
+                        </select>
                         <input
                             id="searchTextField"
                             type="text"
@@ -91,9 +94,6 @@ class LandingPage extends React.Component {
                             name="locationInput"
                             required
                         />
-                        <select name="categoryInput" onChange={this.handleChange} required>
-                            {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
-                        </select>
                         <button className="landingButton">Search</button>
                     </form>
                 </div>

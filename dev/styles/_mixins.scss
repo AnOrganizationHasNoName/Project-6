@@ -5,7 +5,7 @@
     }
 }
 
-@mixin button{
+@mixin meetup-Button{
     padding: 5px;
     border-radius: 15px;
     text-align: center;
@@ -22,4 +22,29 @@
     &:active{
         background-color: $bodyColor;
     }    
+}
+
+@mixin landing-Button{
+    padding: 20px 60px;
+    text-align: center;
+    text-decoration: none;
+    background-color: #f49e4c;
+    border-radius: 0;
+    border: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+        a{
+            text-decoration:none;
+            
+
+        }
+    &:hover{
+        background-color: $buttonColor;
+    }
+    &:active{
+        background-color: $bodyColor;
+    }    
+
 }
