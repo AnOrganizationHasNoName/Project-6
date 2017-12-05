@@ -76,7 +76,7 @@ class App extends React.Component {
       })
     })
   }
-  getMeetups(lat, lon, category) {
+  getMeetups(lat, lon, category, startDate, endDate) {
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -91,6 +91,7 @@ class App extends React.Component {
           lat: lat,
           lon: lon,
           category: category,
+          time: `${startDate}, ${endDate}`
         },
         proxyHeaders: {
           'header_params': 'value'

@@ -14,13 +14,17 @@ class LandingPage extends React.Component {
             meetupCategories: [],
             lat: 0,
             lon: 0,
+            startDate: new Date(),
+            endDate: new Date(),
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
     handleSubmit(e) {
         e.preventDefault();
-        this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
+        let startDate = new Date(this.state.startDate).getTime();
+        let endDate = new Date(this.state.endDate).getTime();
+        this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput, startDate, endDate);
         this.props.history.push('/meetups');
     }
     handleChange(e) {
@@ -94,6 +98,16 @@ class LandingPage extends React.Component {
                       <select name="categoryInput" onChange={this.handleChange} required>
                         {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
                       </select>
+                      <input 
+                        type="date"
+                        name="startDate"
+                        onChange={this.handleChange}
+                      />
+                      <input 
+                        type="date"
+                        name="endDate"
+                        onChange={this.handleChange}
+                      />
                       <button>Search</button>
                      </form>
                 </div>
