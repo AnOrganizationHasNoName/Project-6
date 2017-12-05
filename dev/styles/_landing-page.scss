@@ -29,17 +29,20 @@ body{
     margin: 0 auto;
     max-width: 100%;
     input, select, .landingButton{
-        width: 30%;
+        width: 32%;
+        margin: 0.5%;
     }
     input {
         text-transform: uppercase;
         border: none;
         padding: 11px;
+        border-radius: 5px;
     }
     select{
         font-family: 'Lato', sans-serif;
         border: none;
         padding: 10px;
+        border-radius: 5px;
     }
 }
 
@@ -47,6 +50,7 @@ body{
     @include landing-Button;
     margin: 0;
     padding: 12px 60px;
+    border-radius: 5px;
 }
 
 

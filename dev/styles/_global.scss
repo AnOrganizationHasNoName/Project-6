@@ -11,7 +11,6 @@ body {
     width: 100%;
     margin: 0 auto;
     background: $bodyColor;
-    border: 5px dotted orange;
     padding: 20px;
     max-width: 100%;
 }
@@ -44,6 +43,7 @@ h2 {
 
 a {
     word-wrap: break-word;
+    padding: 10px;
 }
 
 ul {
@@ -89,4 +89,11 @@ ul {
     max-width: 100%;
     max-height: 100%;
     padding: 10px;
+}
+
+button {
+    color: white;
+    a, a::visited {
+        color: white;
+    }
 }

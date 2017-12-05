@@ -1,0 +1,32 @@
+@media only screen and (max-width: 740px) {
+    // landing page
+    .user-form {
+    select, input, .landingButton {
+        width: 100%;
+        margin: 0.5%;
+        display: block;
+    }
+}
+}
+
+@media only screen and (max-width: 610px) {
+    // general styles
+    h1 {
+        font-size: 4rem;
+    }
+
+    .innerWrapper {
+        width: 85%;
+    }
+}
+
+@media only screen and (max-width: 447px) {
+    // general styles
+    h1 {
+        font-size: 3.5rem;
+    }
+    // landing page
+    .appDescription {
+        font-size: 1.7rem;
+    }
+}
