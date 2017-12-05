@@ -7,14 +7,15 @@ class Restaurants extends React.Component {
     }
     render() {
         return (
-            <div>
-                <button><Link to="/" onClick={this.props.reset}>Return To Home</Link></button>
-                <ul className="restaurants">
+            <div className="wrapper">
+                <button className="homeBtn"><Link to="/" onClick={this.props.reset}>Return To Home</Link></button>
+                <ul className="resCont">
                     {this.props.data.map(restaurant => {
-                        return <li key={restaurant.id} className="restaurant">
-                            <p><span>Address: </span>{restaurant.vicinity}</p>
-                            <p><span>Phone Number: </span>{restaurant.international_phone_number}</p>
-                            <p><span>Google Rating: </span>{restaurant.rating}/5</p>
+                        return <li className="resInfo" key={restaurant.id}>
+                            <span>Address: </span><p>{restaurant.vicinity}</p>
+                            <span>Phone Number: </span><p>{restaurant.international_phone_number}</p>
+                            <span>Google Rating: </span><p>{restaurant.rating}/5</p>
+
                             <button><a href={restaurant.website}>Website</a></button>
                             <button><a href={restaurant.url}>Directions</a></button>
                         </li>
