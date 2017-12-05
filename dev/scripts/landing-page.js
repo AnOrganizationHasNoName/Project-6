@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 import CountriesArray from './country-array';
 import Qs from 'qs';
 import TitleOnLandingPage from './landing-page-header';
-import LandingPageFooter from './landing-page-footer';
 
 class LandingPage extends React.Component {
     constructor(props) {
@@ -101,7 +100,6 @@ class LandingPage extends React.Component {
                       <button>Search</button>
                      </form>
                 </div>
-                <LandingPageFooter />
             </div>  
         )
     }

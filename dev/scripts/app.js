@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Meetups from './meetup-info';
 import LandingPage from './landing-page';
 import Restaurants from './restaurants';
+import NotFound from './not-found';
+
 class App extends React.Component {
   constructor() {
     super();
@@ -43,7 +45,6 @@ class App extends React.Component {
       const restaurantRefs = res.data.results.map(restaurant => restaurant.reference);
       this.getRestaurantDetails(restaurantRefs);
     });
-
   }
   getRestaurantDetails(restaurantRefs) {
     // this method will be called in the getRestaurantRefs function where the restaurantRefs information lives
@@ -121,6 +122,7 @@ class App extends React.Component {
               exact path="/restaurants"
               render={props => <Restaurants {...props} data={this.state.restaurants}/>}
             />
+            <Route render={() => <NotFound/>} />
           </Switch>
         </div>
       </Router>
