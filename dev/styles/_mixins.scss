@@ -7,12 +7,13 @@
 
 @mixin meetup-Button{
     padding: 10px;
+    border: 1px;
     border-radius: 20px;
     text-align: center;
     text-decoration: none;
     background-color: $buttonBorder;
-    width: 100%;
-    margin: 5px;
+    width: 90%;
+    margin: 10px auto;
         a{
             text-decoration:none;
             
