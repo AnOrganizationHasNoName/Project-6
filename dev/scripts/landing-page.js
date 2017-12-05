@@ -24,8 +24,12 @@ class LandingPage extends React.Component {
         e.preventDefault();
         let startDate = new Date(this.state.startDate).getTime();
         let endDate = new Date(this.state.endDate).getTime();
-        this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput, startDate, endDate);
-        this.props.history.push('/meetups');
+        if (startDate > endDate) {
+            alert('Error. The start date must be before the end date.');
+        } else {
+            this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput, startDate, endDate);
+            this.props.history.push('/meetups');
+        }
     }
     handleChange(e) {
         this.setState({
@@ -98,9 +102,11 @@ class LandingPage extends React.Component {
                       <select name="categoryInput" onChange={this.handleChange} required>
                         {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
                       </select>
+                      <label htmlFor="date">Search for meetups between:</label>
                       <input 
                         type="date"
                         name="startDate"
+                        id="date"
                         onChange={this.handleChange}
                       />
                       <input 
