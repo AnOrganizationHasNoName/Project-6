@@ -82,23 +82,21 @@ class LandingPage extends React.Component {
         return (
             <div className="wrapper">
                 <TitleOnLandingPage />
-                <div className="innerWrapper">
+                <div className="landingInner">
                     <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                    {/* Google autocomplete input */}
-                      <input 
-                          id="searchTextField"
-                          type="text"
-                          size="50"
-                          placeholder="Enter a city"
-                          name="locationInput"
-                          required
-                      />
-                      {/* for each category, create an option */}
-                      <select name="categoryInput" onChange={this.handleChange} required>
-                        {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
-                      </select>
-                      <button>Search</button>
-                     </form>
+                        <select name="categoryInput" onChange={this.handleChange} required>
+                            {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
+                        </select>
+                        <input
+                            id="searchTextField"
+                            type="text"
+                            size="50"
+                            placeholder="Enter a city"
+                            name="locationInput"
+                            required
+                        />
+                        <button className="landingButton">Search</button>
+                    </form>
                 </div>
             </div>  
         )

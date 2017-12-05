@@ -1,7 +1,7 @@
 @import "setup";
-@import "colours";
+@import "mixins";
+@import "./colours";
 @import "global";
-@import "landing-page";
 @import "meetups";
 @import "restaurants";
-@import "loading-spinner";
+@import "landing-page";

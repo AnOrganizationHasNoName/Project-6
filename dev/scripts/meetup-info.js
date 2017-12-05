@@ -8,14 +8,20 @@ export default class Meetups extends React.Component {
   render() {
     return (
       <div>
-        <button><Link to="/" onClick={this.props.reset}>Return To Home</Link></button>
-        <ul className="meetups clearfix">
+        <button className="homeBtn">
+          <Link to="/" onClick={this.props.reset}>Return To Home</Link>
+        </button>
+        <ul className="meetupCont clearfix">
           {this.props.data.map(meetup => {
             return <li className="meetup clearfix" key={meetup.id}>
-              <h2>{meetup.name}</h2>
-              <p>{meetup.venue.name}, {meetup.venue.address_1}</p>
-              <p><span>Meetup Time: </span>{getTime(meetup.time)}</p>
-              <p><span>Meetup Date: </span>{getDate(meetup.time)}</p>
+              <div className="meetupHeader">
+                <h2>{meetup.name}</h2>
+              </div>
+              <div className="meetupInfoCont">
+                <span>Venue: </span>
+                <span>Meetup Time: </span><p>{getTime(meetup.time)}</p>
+                <span>Meetup Date: </span><p>{getDate(meetup.time)}</p>
+              </div>
               <button><a href={meetup.event_url}>Event Info</a></button>
               <button
                 onClick={() => this.props.onClick(meetup.venue.lat, meetup.venue.lon)}>

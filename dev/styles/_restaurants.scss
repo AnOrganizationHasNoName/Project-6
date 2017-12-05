@@ -1,0 +1,50 @@
+/* .restaurants {
+    .restaurant {
+        @include tile;
+    }
+} */
+
+.resOuter{
+    border: 2px solid white;
+}
+.restaurants {
+    li {
+        width: 48%;
+        float: left;
+        min-height: 135px;
+        max-height: 175px;
+        background: white;
+        margin: 0.5%;
+    }
+}
+
+.restaurants{
+    border: 2px dotted red;
+}
+
+.restaurant {
+    border: 2px solid cyan;
+}
+
+.resHead {
+    border: 2px solid blue;
+}
+.resMainTitle{
+    border: 2px solid lightblue;
+}
+
+.resInfo{
+    border: 2px solid royalblue;
+}
+
+.resTagsTitle{
+    border: 2px solid purple;
+}
+
+.resLinks{
+    border: 2px solid pink;
+}
+
+.resDirection{
+    border: 2px solid magenta;
+}
