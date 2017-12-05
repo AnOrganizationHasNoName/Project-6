@@ -29,5 +29,6 @@ export default class Meetups extends React.Component {
   }
 }
 
+// conversion from ms to readable time and date
 const getTime = (millsecondsTime) => new Date(millsecondsTime).toTimeString().slice(0, 5);
 const getDate = (millsecondsTime) => new Date(millsecondsTime).toLocaleDateString();
