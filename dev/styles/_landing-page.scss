@@ -12,10 +12,6 @@ body{
     background-size: cover;
     font-family: Lato, sans-serif;
     position: relative;
-<<<<<<< HEAD
-=======
-
->>>>>>> e3f714f28d61d22a078a18e26246421717d1df33
 }
 
 h1{
@@ -48,25 +44,13 @@ h2{
     }
     input {
         text-transform: uppercase;
-<<<<<<< HEAD
-=======
         font-size: 1em;
         margin:10px;
         border-radius: 5px;
->>>>>>> e3f714f28d61d22a078a18e26246421717d1df33
         border: none;
         padding: 11px;
     }
     select{
-<<<<<<< HEAD
-        font-family: 'Lato', sans-serif;
-        background: white;
-        border: none;
-        padding: 10px;
-    }
-    button {
-        padding: 11px;
-=======
     font-family: 'Lato', sans-serif;
     font-size: 16px;
     padding: 22px;
@@ -75,16 +59,10 @@ h2{
     height: 60px;
     border-radius: 0;
     border: none;
->>>>>>> e3f714f28d61d22a078a18e26246421717d1df33
     }
 }
 
 .landingButton{
-<<<<<<< HEAD
-    @include landing-Button;
-    padding: 11px;
-} 
-=======
     padding: 20px 60px;
     text-align: center;
     text-decoration: none;
@@ -107,7 +85,6 @@ h2{
     }    
 
 }
->>>>>>> e3f714f28d61d22a078a18e26246421717d1df33
 
 
 
