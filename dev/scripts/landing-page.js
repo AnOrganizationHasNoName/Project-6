@@ -204,7 +204,6 @@ class LandingPage extends React.Component {
                 <TitleOnLandingPage />
                 <div className="innerWrapper">
                     <form action="" className="user-form" onSubmit={this.handleSubmit}>
-<<<<<<< HEAD
                         <select name="categoryInput" onChange={this.handleChange} required>
                             {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
                         </select>
@@ -221,7 +220,6 @@ class LandingPage extends React.Component {
                 </div>
                 <LandingPageFooter />
             </div>
-=======
                       <input 
                           id="searchTextField"
                           type="text"
