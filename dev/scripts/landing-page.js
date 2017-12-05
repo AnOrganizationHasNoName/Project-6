@@ -21,11 +21,15 @@ class LandingPage extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
-        this.props.history.push('/meetups');
+        if (this.props.meetups.length === 0) {
+            alert('No meetups found');
+        } else {
+            this.props.history.push('/meetups');
+        }
     }
     handleChange(e) {
         this.setState({
-            [e.target.name]: e.target.value,
+            [e.target.name]: e.target.value
         })
     }
     componentDidMount() {
@@ -49,7 +53,7 @@ class LandingPage extends React.Component {
             this.setState({
                 lat: latitude,
                 lon: longitude
-            })
+            }) 
         });
 
         // ajax request for meetup categories
@@ -83,22 +87,22 @@ class LandingPage extends React.Component {
                 <TitleOnLandingPage />
                 <div className="innerWrapper">
                     <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                        <input
-                            id="searchTextField"
-                            type="text"
-                            size="50"
-                            placeholder="Enter a city"
-                            name="locationInput"
-                            required
-                        />
-                        <select name="categoryInput" onChange={this.handleChange} required>
-                            {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
-                        </select>
-                        <button>Search</button>
-                    </form>
+                      <input 
+                          id="searchTextField"
+                          type="text"
+                          size="50"
+                          placeholder="Enter a city"
+                          name="locationInput"
+                          required
+                      />
+                      <select name="categoryInput" onChange={this.handleChange} required>
+                        {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
+                      </select>
+                      <button>Search</button>
+                     </form>
                 </div>
                 <LandingPageFooter />
-            </div>
+            </div>  
         )
     }
 }
