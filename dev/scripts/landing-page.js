@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import { Link, withRouter } from 'react-router-dom';
 import CountriesArray from './country-array';
 import Qs from 'qs';
@@ -22,7 +21,11 @@ class LandingPage extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
-        this.props.history.push('/meetups');
+        if (this.props.meetups.length === 0) {
+            alert('No meetups found');
+        } else {
+            this.props.history.push('/meetups');
+        }
     }
     handleChange(e) {
         this.setState({
@@ -95,9 +98,6 @@ class LandingPage extends React.Component {
                       <select name="categoryInput" onChange={this.handleChange} required>
                         {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
                       </select>
-                      {/* <label htmlFor="startDate">Events between:</label>
-                      <input type="date" id="startDate" required required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/>
-                      <input type="date" id="endDate" required required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"/> */}
                       <button>Search</button>
                      </form>
                 </div>

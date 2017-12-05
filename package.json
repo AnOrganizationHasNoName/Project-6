@@ -29,6 +29,10 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "node-sass": "^4.7.1"
+    "moment": "^2.19.3",
+    "node-sass": "^4.7.1",
+    "prop-types": "^15.6.0",
+    "react-date-range": "^0.9.4",
+    "react-datepicker": "^0.61.0"
   }
 }
