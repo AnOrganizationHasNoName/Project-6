@@ -4,6 +4,9 @@
     }
 } */
 
+.resOuter{
+    border: 2px solid white;
+}
 .restaurants {
     li {
         width: 48%;
@@ -13,4 +16,35 @@
         background: white;
         margin: 0.5%;
     }
+}
+
+.restaurants{
+    border: 2px dotted red;
+}
+
+.restaurant {
+    border: 2px solid cyan;
+}
+
+.resHead {
+    border: 2px solid blue;
+}
+.resMainTitle{
+    border: 2px solid lightblue;
+}
+
+.resInfo{
+    border: 2px solid royalblue;
+}
+
+.resTagsTitle{
+    border: 2px solid purple;
+}
+
+.resLinks{
+    border: 2px solid pink;
+}
+
+.resDirection{
+    border: 2px solid magenta;
 }
