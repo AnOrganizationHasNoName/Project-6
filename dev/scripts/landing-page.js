@@ -20,11 +20,7 @@ class LandingPage extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
-        if (this.props.meetups.length === 0) {
-            alert('No meetups found');
-        } else {
-            this.props.history.push('/meetups');
-        }
+        this.props.history.push('/meetups');
     }
     handleChange(e) {
         this.setState({

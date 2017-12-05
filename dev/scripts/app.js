@@ -14,11 +14,18 @@ class App extends React.Component {
     this.getMeetups = this.getMeetups.bind(this);
     this.getRestaurantRefs = this.getRestaurantRefs.bind(this);
     this.getRestaurantDetails = this.getRestaurantDetails.bind(this);
-    this.handleClick = this.getMeetups.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       meetups: [],
       restaurants: [],
     }
+  }
+  handleClick() {
+    // on click of the return home button, reset the states to empty arrays
+    this.setState({
+      meetups: [],
+      restaurants: [],
+    })
   }
   getRestaurantRefs(lat, lon) {
     axios({
@@ -116,11 +123,11 @@ class App extends React.Component {
             />
             <Route
               exact path="/meetups"
-              render={props => <Meetups {...props} data={this.state.meetups} onClick={this.getRestaurantRefs} />}
+              render={props => <Meetups {...props} data={this.state.meetups} onClick={this.getRestaurantRefs} reset={this.handleClick}/>}
             />
             <Route
               exact path="/restaurants"
-              render={props => <Restaurants {...props} data={this.state.restaurants}/>}
+              render={props => <Restaurants {...props} data={this.state.restaurants} reset={this.handleClick}/>}
             />
             <Route render={() => <NotFound/>} />
           </Switch>

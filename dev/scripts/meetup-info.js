@@ -8,7 +8,7 @@ export default class Meetups extends React.Component {
   render() {
     return (
       <div>
-        <button><Link to="/">Return To Home</Link></button>
+        <button><Link to="/" onClick={this.props.reset}>Return To Home</Link></button>
         <ul className="meetups clearfix">
           {this.props.data.map(meetup => {
             return  <li className="meetup clearfix" key={meetup.id}>
