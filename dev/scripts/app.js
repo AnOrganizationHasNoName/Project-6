@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Meetups from './meetup-info';
 import LandingPage from './landing-page';
 import Restaurants from './restaurants';
-import NotFound from './not-found';
+
 
 class App extends React.Component {
   constructor() {
