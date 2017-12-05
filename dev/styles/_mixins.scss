@@ -4,3 +4,22 @@
         margin-top: 0;
     }
 }
+
+@mixin button{
+    padding: 5px;
+    border-radius: 15px;
+    text-align: center;
+    text-decoration: none;
+    background-color: $buttonBorder;
+        a{
+            text-decoration:none;
+            
+
+        }
+    &:hover{
+        background-color: $buttonColor;
+    }
+    &:active{
+        background-color: $bodyColor;
+    }    
+}

@@ -7,11 +7,13 @@ export default class Meetups extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className ="meetupsOuterDiv">
         <button><Link to="/">Return To Home</Link></button>
+
         <ul className="meetups clearfix">
           {this.props.data.map(meetup => {
-            return  <li className="meetup clearfix" key={meetup.id}>
+            return  
+            <li className="meetup clearfix" key={meetup.id}>
             <section className="meetupHead">
               <div className="meetupMainTitle">
                 <h2>{meetup.name}</h2>
