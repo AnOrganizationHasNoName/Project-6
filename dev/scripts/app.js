@@ -6,17 +6,26 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Meetups from './meetup-info';
 import LandingPage from './landing-page';
 import Restaurants from './restaurants';
+import NotFound from './not-found';
+
 class App extends React.Component {
   constructor() {
     super();
     this.getMeetups = this.getMeetups.bind(this);
     this.getRestaurantRefs = this.getRestaurantRefs.bind(this);
     this.getRestaurantDetails = this.getRestaurantDetails.bind(this);
-    this.handleClick = this.getMeetups.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       meetups: [],
       restaurants: [],
     }
+  }
+  handleClick() {
+    // on click of the return home button, reset the states to empty arrays
+    this.setState({
+      meetups: [],
+      restaurants: [],
+    })
   }
   getRestaurantRefs(lat, lon) {
     axios({
@@ -43,7 +52,6 @@ class App extends React.Component {
       const restaurantRefs = res.data.results.map(restaurant => restaurant.reference);
       this.getRestaurantDetails(restaurantRefs);
     });
-
   }
   getRestaurantDetails(restaurantRefs) {
     // this method will be called in the getRestaurantRefs function where the restaurantRefs information lives
@@ -115,12 +123,13 @@ class App extends React.Component {
             />
             <Route
               exact path="/meetups"
-              render={props => <Meetups {...props} data={this.state.meetups} onClick={this.getRestaurantRefs} />}
+              render={props => <Meetups {...props} data={this.state.meetups} onClick={this.getRestaurantRefs} reset={this.handleClick}/>}
             />
             <Route
               exact path="/restaurants"
-              render={props => <Restaurants {...props} data={this.state.restaurants}/>}
+              render={props => <Restaurants {...props} data={this.state.restaurants} reset={this.handleClick}/>}
             />
+            <Route render={() => <NotFound/>} />
           </Switch>
         </div>
       </Router>

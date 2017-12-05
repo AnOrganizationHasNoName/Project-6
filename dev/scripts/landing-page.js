@@ -4,7 +4,6 @@ import { Link, withRouter } from 'react-router-dom';
 import CountriesArray from './country-array';
 import Qs from 'qs';
 import TitleOnLandingPage from './landing-page-header';
-import LandingPageFooter from './landing-page-footer';
 
 class LandingPage extends React.Component {
     constructor(props) {
@@ -21,11 +20,7 @@ class LandingPage extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
-        if (this.props.meetups.length === 0) {
-            alert('No meetups found');
-        } else {
-            this.props.history.push('/meetups');
-        }
+        this.props.history.push('/meetups');
     }
     handleChange(e) {
         this.setState({
@@ -101,7 +96,6 @@ class LandingPage extends React.Component {
                       <button>Search</button>
                      </form>
                 </div>
-                <LandingPageFooter />
             </div>  
         )
     }
