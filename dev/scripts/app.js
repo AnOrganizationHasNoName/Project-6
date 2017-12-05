@@ -76,7 +76,7 @@ class App extends React.Component {
       })
     })
   }
-  getMeetups(lat, lon, category, startDate, endDate) {
+  getMeetups(lat, lon, category) {
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -90,8 +90,7 @@ class App extends React.Component {
           key: '6a49717012332a5d284f3c775460653',
           lat: lat,
           lon: lon,
-          category: category,
-          time: `${startDate}, ${endDate}`
+          category: category
         },
         proxyHeaders: {
           'header_params': 'value'
@@ -112,7 +111,7 @@ class App extends React.Component {
           <Switch>
             <Route
               exact path="/"
-              render={props => <LandingPage {...props} formSubmit={this.getMeetups} />}
+              render={props => <LandingPage {...props} formSubmit={this.getMeetups} meetups={this.state.meetups}/>}
             />
             <Route
               exact path="/meetups"

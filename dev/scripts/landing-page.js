@@ -14,20 +14,16 @@ class LandingPage extends React.Component {
             meetupCategories: [],
             lat: 0,
             lon: 0,
-            startDate: new Date(),
-            endDate: new Date(),
         }
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
     handleSubmit(e) {
         e.preventDefault();
-        let startDate = new Date(this.state.startDate).getTime();
-        let endDate = new Date(this.state.endDate).getTime();
-        if (startDate > endDate) {
-            alert('Error. The start date must be before the end date.');
+        this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
+        if (this.props.meetups.length === 0) {
+            alert('No meetups found');
         } else {
-            this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput, startDate, endDate);
             this.props.history.push('/meetups');
         }
     }
@@ -102,18 +98,6 @@ class LandingPage extends React.Component {
                       <select name="categoryInput" onChange={this.handleChange} required>
                         {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
                       </select>
-                      <label htmlFor="date">Search for meetups between:</label>
-                      <input 
-                        type="date"
-                        name="startDate"
-                        id="date"
-                        onChange={this.handleChange}
-                      />
-                      <input 
-                        type="date"
-                        name="endDate"
-                        onChange={this.handleChange}
-                      />
                       <button>Search</button>
                      </form>
                 </div>
