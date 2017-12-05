@@ -35,6 +35,17 @@
 }
 
 .meetup{
+.meetups {
+    border: 2px solid pink;
+   
+}
+
+ button{
+    @include meetup-Button;
+}
+
+.meetup{
+    border: 3px solid green;
     min-height: 400px;
 }
 .meetups {
@@ -57,9 +68,22 @@
     // min-height: 320px;
     // max-height: 350px;
     padding: 10px;
+    border: 2px solid $bodyColor;
+    width: 48%;
+    float: left;
+    min-height: 350px;
+    max-height: 380px;
+    background: white;
+    margin: 0.5%;
 
 }
 
+.meetupInfo {
+    border: 2px solid red;
+    min-height: 350px;
+    max-height: 380px;
+    padding: 10px;
+}
 
 .meetupHead {
     clear: both;

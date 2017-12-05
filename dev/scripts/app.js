@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Meetups from './meetup-info';
 import LandingPage from './landing-page';
 import Restaurants from './restaurants';
+import NotFound from './not-found';
 
 class App extends React.Component {
   constructor() {
@@ -13,11 +14,18 @@ class App extends React.Component {
     this.getMeetups = this.getMeetups.bind(this);
     this.getRestaurantRefs = this.getRestaurantRefs.bind(this);
     this.getRestaurantDetails = this.getRestaurantDetails.bind(this);
-    this.handleClick = this.getMeetups.bind(this);
+    this.handleClick = this.handleClick.bind(this);
     this.state = {
       meetups: [],
       restaurants: [],
     }
+  }
+  handleClick() {
+    // on click of the return home button, reset the states to empty arrays
+    this.setState({
+      meetups: [],
+      restaurants: [],
+    })
   }
   getRestaurantRefs(lat, lon) {
     axios({
@@ -48,7 +56,6 @@ class App extends React.Component {
   getRestaurantDetails(restaurantRefs) {
     // this method will be called in the getRestaurantRefs function where the restaurantRefs information lives
     // therefore, make a placeholder for now
-
     // for each of the restaurant ids run an axios request
     // store each of these ajax requests in an array
     // use promise.all on this array of ajax requests 
@@ -63,7 +70,7 @@ class App extends React.Component {
         params: {
           reqUrl: `https://maps.googleapis.com/maps/api/place/details/json`,
           params: {
-            key: 'AIzaSyCpT2X1_HiFf3PJxmbYeIPpSIHGrdUTnmM',
+            key: 'AIzaSyDGfwsmW6wPeO-DzvircnZj0SDtp6enZ9o',
             reference: restaurantRef
           },
           xmlToJSON: false
@@ -74,10 +81,10 @@ class App extends React.Component {
       const restaurants = res.map(res => res.data.result);
       this.setState({
         restaurants
-      }) 
+      })
     })
   }
-  getMeetups(city, country, category) {
+  getMeetups(lat, lon, category) {
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -89,9 +96,9 @@ class App extends React.Component {
         reqUrl: 'https://api.meetup.com/2/open_events',
         params: {
           key: '6a49717012332a5d284f3c775460653',
-          city: city,
-          country: country,
-          category: category,
+          lat: lat,
+          lon: lon,
+          category: category
         },
         proxyHeaders: {
           'header_params': 'value'
@@ -112,21 +119,21 @@ class App extends React.Component {
           <Switch>
             <Route
               exact path="/"
-              render={props => <LandingPage {...props} formSubmit={this.getMeetups} />}
+              render={props => <LandingPage {...props} formSubmit={this.getMeetups} meetups={this.state.meetups}/>}
             />
             <Route
               exact path="/meetups"
-              render={props => <Meetups {...props} data={this.state.meetups} onClick={this.getRestaurantRefs} />}
+              render={props => <Meetups {...props} data={this.state.meetups} onClick={this.getRestaurantRefs} reset={this.handleClick}/>}
             />
             <Route
               exact path="/restaurants"
-              render={props => <Restaurants {...props} data={this.state.restaurants}/>}
+              render={props => <Restaurants {...props} data={this.state.restaurants} reset={this.handleClick}/>}
             />
+            <Route render={() => <NotFound/>} />
           </Switch>
         </div>
       </Router>
     )
   }
 }
-
 ReactDOM.render(<App />, document.getElementById('app'));
