@@ -7,6 +7,7 @@ import Meetups from './meetup-info';
 import LandingPage from './landing-page';
 import Restaurants from './restaurants';
 import NotFound from './not-found';
+import LoadingSpinner from './loading-spinner';
 
 class App extends React.Component {
   constructor() {
@@ -18,6 +19,7 @@ class App extends React.Component {
     this.state = {
       meetups: [],
       restaurants: [],
+      loading: false,
     }
   }
   handleClick() {
@@ -54,6 +56,9 @@ class App extends React.Component {
     });
   }
   getRestaurantDetails(restaurantRefs) {
+    this.setState({
+      loading: true
+    })
     // this method will be called in the getRestaurantRefs function where the restaurantRefs information lives
     // therefore, make a placeholder for now
     // for each of the restaurant ids run an axios request
@@ -80,11 +85,15 @@ class App extends React.Component {
     Promise.all(restaurantDetails).then(res =>{
       const restaurants = res.map(res => res.data.result);
       this.setState({
-        restaurants
+        restaurants: restaurants,
+        loading: false
       })
     })
   }
   getMeetups(lat, lon, category) {
+    this.setState({
+      loading: true
+    })
     axios({
       method: 'GET',
       url: 'http://proxy.hackeryou.com',
@@ -108,7 +117,8 @@ class App extends React.Component {
     }).then(res => {
       const meetups = res.data.results.filter(meetup => meetup.venue !== undefined);
       this.setState({
-        meetups
+        meetups: meetups,
+        loading: false
       })
     });
   }
@@ -121,14 +131,22 @@ class App extends React.Component {
               exact path="/"
               render={props => <LandingPage {...props} formSubmit={this.getMeetups} meetups={this.state.meetups}/>}
             />
-            <Route
+            {this.state.loading ? <LoadingSpinner /> : <Route
+              exact path="/meetups"
+              render={props => <Meetups {...props} data={this.state.meetups} onClick={this.getRestaurantRefs} reset={this.handleClick} />}
+            />}
+            {this.state.loading ? <LoadingSpinner /> : <Route
+              exact path="/restaurants"
+              render={props => <Restaurants {...props} data={this.state.restaurants} reset={this.handleClick} />}
+            />}
+            {/* <Route
               exact path="/meetups"
               render={props => <Meetups {...props} data={this.state.meetups} onClick={this.getRestaurantRefs} reset={this.handleClick}/>}
-            />
-            <Route
+            /> */}
+            {/* <Route
               exact path="/restaurants"
               render={props => <Restaurants {...props} data={this.state.restaurants} reset={this.handleClick}/>}
-            />
+            /> */}
             <Route render={() => <NotFound/>} />
           </Switch>
         </div>
