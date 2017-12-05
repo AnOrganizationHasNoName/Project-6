@@ -3,7 +3,7 @@
 
 .wrapper{
     border: 3px dotted red;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url("../../assets/landing-pagebg.jpg") ;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url("../assets/landing-pagebg.jpg") ;
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
@@ -52,6 +52,8 @@
     min-height: 350px;
     max-height: 380px;
     padding: 10px;
+    width: 100%;
+    border-radius: 0px 0 10px 10px;
 }
 
 .meetupHead {
