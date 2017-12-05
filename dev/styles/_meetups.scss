@@ -1,16 +1,14 @@
 @import "./colours";
 
-
-.meetupsOuterDiv{
-    border: 2px dotted tomato;
-}
 .meetups {
-    margin: 0 auto;
     .meetup {
         @include tile;
     }
 }
 
+button{
+    @include button;
+}
 .meetups {
     li {
         width: 48%;
@@ -23,7 +21,6 @@
 }
 
 .meetupInfo {
-    border: 2px solid pink;
     min-height: 100px;
     padding: 10px;
 }
@@ -31,17 +28,23 @@
 .meetupHead {
     clear: both;
     min-height: 50px;
-    background: $h1Color;
 }
 
+.meetupHead {
+    background: $h1Color;
+}
 
 .meetupMainTitle h2 {
     text-align: center;
     color: $bodyColor;
+    margin: 0;
+    padding: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .meetupTagsTitle {
-    border: 2px solid purple;
     clear: both;
     h3, p {
         display: inline-block;
@@ -65,13 +68,11 @@
 }
 
 .meetupTags {
-    border: 2px solid green;
     float: left;
     width: 70%;
 }
 
 .meetupLinks{
-    border: 2px solid yellow;
     width: 30%;
     float: left;
 }

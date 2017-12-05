@@ -4,11 +4,6 @@
     }
 } */
 
-button{
-    @include button;
-
-}
-
 .resOuter{
     border: 2px solid white;
 }
@@ -53,4 +48,3 @@ button{
 .resDirection{
     border: 2px solid magenta;
 }
-

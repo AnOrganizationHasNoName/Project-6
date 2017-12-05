@@ -94,7 +94,7 @@ class LandingPage extends React.Component {
                         <select name="categoryInput" onChange={this.handleChange} required>
                             {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
                         </select>
-                        <button>Search</button>
+                        <button className="landingButton">Search</button>
                     </form>
                 </div>
                 <LandingPageFooter />

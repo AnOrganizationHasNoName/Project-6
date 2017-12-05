@@ -2,6 +2,20 @@
 
 // h1 styles are located on global.scss
 
+
+body{
+    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url("../../assets/landing-pagebg.jpg") ;
+    background-repeat: no-repeat;
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+
+}
+
+.wrapper{
+    text-align: center;
+}
 .appDescription {
     text-align: center;
     color: white;
@@ -15,21 +29,27 @@
     max-width: 100%;
     select, input {
         width: 30%;
+        padding: 20px;
     }
-    button {
-        width: 10%;
-    }
-    button {
-        background: $buttonColor;
-        color: white;
-        border: 2px solid $buttonColor;
-    }
+
+button.landingButton{
+    background-color: $h1Color;
+    height: 50px;
 }
+//     button {
+//         width: 10%;
+//     }
+//     button {
+//         background: $buttonColor;
+//         color: white;
+//         border: 2px solid $buttonColor;
+//     }
+// }
 
 // footer
 
-footer {
-    background: $buttonColor;
-    color: $footerText;
-    margin-top: 10%;
-}
+// footer {
+//     background: $buttonColor;
+//     color: $footerText;
+//     margin-top: 10%;
+// }
