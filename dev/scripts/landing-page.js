@@ -19,7 +19,9 @@ class LandingPage extends React.Component {
     }
     handleSubmit(e) {
         e.preventDefault();
+        // call the prop to submit the form with the states filling in the parameters/placeholders
         this.props.formSubmit(this.state.lat, this.state.lon, this.state.categoryInput);
+        // send the user to meetups withRouter
         this.props.history.push('/meetups');
     }
     handleChange(e) {
@@ -82,19 +84,19 @@ class LandingPage extends React.Component {
                 <TitleOnLandingPage />
                 <div className="landingInner">
                     <form action="" className="user-form" onSubmit={this.handleSubmit}>
-                      <select name="categoryInput" onChange={this.handleChange} required>
-                        {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
-                      </select>
-                      <input
-                          id="searchTextField"
-                          type="text"
-                          size="50"
-                          placeholder="Enter a city"
-                          name="locationInput"
-                          required
-                      />
-                      <button className="landingButton">Search</button>
-                     </form>
+                        <select name="categoryInput" onChange={this.handleChange} required>
+                            {this.state.meetupCategories.map(category => <option value={category.id} key={category.id}>{category.name}</option>)}
+                        </select>
+                        <input
+                            id="searchTextField"
+                            type="text"
+                            size="50"
+                            placeholder="Enter a city"
+                            name="locationInput"
+                            required
+                        />
+                        <button className="landingButton">Search</button>
+                    </form>
                 </div>
             </div>
         )

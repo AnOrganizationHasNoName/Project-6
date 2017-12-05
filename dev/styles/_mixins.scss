@@ -12,10 +12,13 @@
     text-align: center;
     text-decoration: none;
     background-color: $buttonBorder;
+    width: 90%;
     margin: 10px auto;
+    width: 100%;
     margin: 5px;
         a{
             text-decoration:none;
+            
         }
     &:hover{
         background-color: $buttonColor;
