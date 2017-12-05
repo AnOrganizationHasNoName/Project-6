@@ -4,33 +4,17 @@
 
 
 body{
-<<<<<<< HEAD
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url("../../assets/landing-pagebg.jpg") ;
-=======
     background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url("../assets/landing-pagebg.jpg") ;
->>>>>>> d273d411f563593bb2651fe5b1cbfcf9da2e5c82
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
     background-position: center;
     background-size: cover;
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
     font-family: Lato, sans-serif;
     position: relative;
-
-
->>>>>>> 592559b77173cac1f131e5813ebc205601325955
+}
 }
 
-
-
-=======
-
-}
-
->>>>>>> d273d411f563593bb2651fe5b1cbfcf9da2e5c82
 .wrapper{
     text-align: center;
 }
