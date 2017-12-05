@@ -1,20 +1,8 @@
 @import "./colours";
 
-
-// .body{
-//     background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url("../../assets/landing-pagebg.jpg") ;
-//     background-repeat: no-repeat;
-//     width: 100vw;
-//     height: 100vh;
-//     background-position: center;
-//     background-size: cover;
-//     background-position: fixed;
-
-// }
-
 .wrapper{
     border: 3px dotted red;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(0, 0, 0, 0.8)), url("../../assets/landing-pagebg.jpg") ;
+    background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0)), url("../../assets/landing-pagebg.jpg") ;
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
@@ -22,114 +10,80 @@
     background-size: cover;
     
 }
-.homebutton{
-    width: 200px;
-}
- button{
-    @include meetup-Button;
-        a{
-            font-size: 1.7em;
-            font-family: 'Lato', sans-serif;
-            color: white;
-        }
+
+.homeBtn{
+    border: 2px solid green;
 }
 
+.meetupCont{
+    border: 2px solid blue;
 
- button{
-    @include meetup-Button;
 }
 
 .meetup{
-    border: 3px solid green;
-    min-height: 400px;
-}
-.meetups {
-    border: 2px solid blue;
-    li {
-        border: 2px solid $bodyColor;
-        width: 48%;
-        float: left;
-        min-height: 350px;
-        max-height: 380px;
-        background: white;
-        margin: 0.5%;
-    }
-}
-
-
-
-.meetupInfo {
-    border: 2px solid red;
-    min-height: 350px;
-    max-height: 380px;
-    padding: 10px;
-}
-
-.meetupHead {
-    clear: both;
-    min-height: 50px;
-    padding: 10px;
-    background-color: $buttonColor;
-
-}
-.meetupMainTitle h2 {
-    // border: 2px dotted lightblue;
-    text-align: center;
-    color: white;
-    margin: 0;
-    padding: 10px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-    padding: 20px;
-}
-
-.meetupTagsTitle {
-    border: 2px dotted tomato;
-    margin: 5px;
+    border: 2px solid purple;
+    width: 33.33%;
+    display:block;
+    height: 400px;
     float: left;
-    text-align: left;
-    clear:both;
-    h3, p {
-        display: block;
-        float: left;
-        margin: 5px;
-    }
-    h3 {
-        width: 22%;
-        text-align: right;
-        border-right: 3px solid $footerText;
-        padding-right: 5px;
-        margin-right: 10px;
-        font-size: 1.4rem;
-        color: $buttonColor;
-    }
+       
+        p{
+            border: 2px solid pink;
+            float: left;
+            clear: both;
+            width: 40%;
+            margin: 0;
+            padding: 5px;
+            font-size: 1em
+        }
+        span{
+            border: 2px solid orange;
+            float: left;
+            clear: both;
+            font-size: 1.3em;
+            padding: 5px;
+            color: $bodyColor;
+                }
+        button{
+            border: 2px solid green;
+            width: 40%;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 30px;
+            background-color: $buttonBorder;
+            border:none;
+            font-family: $fontStack;
+                
+        }
 
-    p {
-        width: 75%;
-        font-size: 1.4rem;
-    }
+        a {
+                    text-decoration: none;
+                    font-size: 1em;
+                    font-family: $fontStack;
+                }
 }
 
-.meetupTags {
-    border: 2px solid tomato;
-    float: left;
-    width: 70%;
-    max-height: 100%;
-}
-
-.meetupLinks{
+.meetupInfoCont{
     border: 2px solid green;
-    width: 30%;
+    display: block;
     float: left;
+    clear: both;
+    width: 90%;
+    margin-top: 5px;
 }
-
-// .meetupURL, .findResLink {
-//     margin: 10px auto;
-//     width: 100%;
-//     button {
-//         width: 100%;
-//     }
-//     a {
-//         text-align: center;
-//     }
+.meetupHeader{
+    border: 2px solid blue;
+    height: 25%;
+    background: $buttonColor;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+        h2{
+        font-size: 1.3em;
+        color: white;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+        padding: 7px;
+        }
+}
