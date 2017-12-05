@@ -1,47 +1,70 @@
 @import "./colours";
 
-.meetups {
-    .meetup {
-        @include tile;
-    }
-}
 
 .meetups {
+    border: 2px solid pink;
+   
+}
+
+ button{
+    @include meetup-Button;
+}
+
+.meetup{
+    border: 3px solid green;
+    min-height: 400px;
+}
+.meetups {
+    border: 2px solid blue;
     li {
+        border: 2px solid $bodyColor;
         width: 48%;
         float: left;
-        min-height: 135px;
-        max-height: 175px;
+        min-height: 350px;
+        max-height: 380px;
         background: white;
         margin: 0.5%;
     }
 }
 
+
+
 .meetupInfo {
-    min-height: 100px;
+    border: 2px solid red;
+    min-height: 350px;
+    max-height: 380px;
     padding: 10px;
 }
 
 .meetupHead {
     clear: both;
     min-height: 50px;
-}
+    padding: 10px;
+    background-color: $buttonColor;
 
-.meetupHead {
-    background: $h1Color;
 }
-
 .meetupMainTitle h2 {
+    // border: 2px dotted lightblue;
     text-align: center;
-    color: $bodyColor;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 20px;
 }
 
 .meetupTagsTitle {
-    clear: both;
+    border: 2px dotted tomato;
+    margin: 5px;
+    float: left;
+    text-align: left;
+    clear:both;
     h3, p {
-        display: inline-block;
+        display: block;
         float: left;
-        margin: 0;
+        margin: 5px;
     }
     h3 {
         width: 22%;
@@ -60,22 +83,25 @@
 }
 
 .meetupTags {
+    border: 2px solid tomato;
     float: left;
     width: 70%;
+    max-height: 100%;
 }
 
 .meetupLinks{
+    border: 2px solid green;
     width: 30%;
     float: left;
 }
 
-.meetupURL, .findResLink {
-    margin: 10px auto;
-    width: 100%;
-    button {
-        width: 100%;
-    }
-    a {
-        text-align: center;
-    }
-}
+// .meetupURL, .findResLink {
+//     margin: 10px auto;
+//     width: 100%;
+//     button {
+//         width: 100%;
+//     }
+//     a {
+//         text-align: center;
+//     }
+// }
