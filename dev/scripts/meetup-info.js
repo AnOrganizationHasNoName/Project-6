@@ -7,7 +7,7 @@ export default class Meetups extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <button className="homeBtn">
           <Link to="/" onClick={this.props.reset}>Return To Home</Link>
         </button>

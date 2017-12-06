@@ -8,6 +8,7 @@
     background-position: center;
     background-size: cover;
     padding: 1px;
+    background-attachment: fixed;
     
 }
 
@@ -19,18 +20,20 @@
     background-color: #f49e4c;
     border: none;
     font-family: "Lato", sans-serif;
+
         a{
             font-family: $fontStack;
             font-size: 1em;
             text-decoration: none;
             text-align: center;
             color: white;
+            letter-spacing: 1.3px;
         }
 }
 
 
 .meetup{
-    border: 5px solid $buttonBorder;
+    border: 6px solid $buttonBorder;
     width: calc(33.33% - 2%);
     display: block;
     height: 500px;
@@ -38,6 +41,7 @@
     font-family: $fontStack;
     margin: 0.5%;
     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    border-radius: 15px;
        
         p{
             float: left;
@@ -71,6 +75,8 @@
             text-decoration: none;
             font-size: 1em;
             font-family: $fontStack;
+            color: white;
+            letter-spacing: 1px;
         }
 }
 
@@ -81,12 +87,14 @@
     width: 100%;
     margin-top: 5px;
     padding: 8px;
+    height: 55%;
 }
 .meetupHeader{
     height: 25%;
     background: $buttonColor;
     text-overflow: ellipsis;
     margin-bottom: 5px;
+    border-radius: 10px 10px 0 0;
         h2{
         font-size: 1.5em;
         color: white;

@@ -41,7 +41,7 @@ class App extends React.Component {
       params: {
         reqUrl: 'https://maps.googleapis.com/maps/api/place/nearbysearch/json',
         params: {
-          key: 'AIzaSyDGfwsmW6wPeO-DzvircnZj0SDtp6enZ9o',
+          key: 'AIzaSyCpT2X1_HiFf3PJxmbYeIPpSIHGrdUTnmM',
           type: 'restaurant',
           location: `${lat}, ${lon}`,
           radius: 1000,
@@ -76,7 +76,7 @@ class App extends React.Component {
         params: {
           reqUrl: `https://maps.googleapis.com/maps/api/place/details/json`,
           params: {
-            key: 'AIzaSyDGfwsmW6wPeO-DzvircnZj0SDtp6enZ9o',
+            key: 'AIzaSyCpT2X1_HiFf3PJxmbYeIPpSIHGrdUTnmM',
             reference: restaurantRef
           },
           xmlToJSON: false
