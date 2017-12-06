@@ -7,47 +7,17 @@ class Restaurants extends React.Component {
     }
     render() {
         return (
-            <div>
-                <button><Link to="/" onClick={this.props.reset}>Return To Home</Link></button>
-                <ul className="restaurants">
+            <div className="wrapper">
+                <button className="homeBtn"><Link to="/" onClick={this.props.reset}>Return To Home</Link></button>
+                <ul className="resCont">
                     {this.props.data.map(restaurant => {
-                        return <li key={restaurant.id} className="restaurant">
-                        <section className="resHead">
-                            <div className="resMainTitle">
-                                <h2>{restaurant.name}</h2>
-                            </div>
-                        </section>
+                        return <li className="resInfo" key={restaurant.id}>
+                            <span>Address: </span><p>{restaurant.vicinity}</p>
+                            <span>Phone Number: </span><p>{restaurant.international_phone_number}</p>
+                            <span>Google Rating: </span><p>{restaurant.rating}/5</p>
 
-                        <section className="resInfo">
-                            <div className="resTags">
-                                <div className="resTagsTitle">
-                                    <h3>Address: </h3>
-                                    <p>{restaurant.vicinity}</p>
-                                </div>
-                                <div className="resTagsTitle">
-                                    <h3>Contact: </h3>
-                                    <p>{restaurant.international_phone_number}</p>
-                                </div>
-                                <div className="resTagsTitle">
-                                    <h3>Rating: </h3>
-                                    <p>{restaurant.rating}</p>
-                                </div>
-                            </div>
-                            
-                            <div className="resLinks">
-                                <div className="resURL">
-                                    <button><a href={restaurant.website}>Visit Website</a></button>
-                                </div>
-                                <div className="resDirections">
-                                    <button><a href={restaurant.url}>{restaurant.url}</a></button>
-                                </div>
-                            </div>
-                        </section>
-                           {/*  <p>Address: {restaurant.vicinity}</p>
-                            <p>Phone Number: {restaurant.international_phone_number}</p>
-                            <p>Google Rating: {restaurant.rating}/5</p>
-                            <p>Website: <a href={restaurant.website}>{restaurant.website}</a></p>
-                            <p>Directions: <a href={restaurant.url}>{restaurant.url}</a></p> */}
+                            <button><a href={restaurant.website}>Website</a></button>
+                            <button><a href={restaurant.url}>Directions</a></button>
                         </li>
                     })}
                 </ul>
