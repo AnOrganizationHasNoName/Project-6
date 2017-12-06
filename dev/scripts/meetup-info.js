@@ -15,7 +15,7 @@ export default class Meetups extends React.Component {
           {this.props.data.map(meetup => {
             return <li className="meetup clearfix" key={meetup.id}>
               <div className="meetupHeader">
-              <h2>{meetup.name}</h2>
+                <h2>{meetup.name}</h2>
               </div>
               <div className="meetupInfoCont">
                 <span>Venue: </span><p>{meetup.venue.name}, {meetup.venue.address_1}</p>
@@ -35,5 +35,6 @@ export default class Meetups extends React.Component {
   }
 }
 
+// conversion from ms to readable time and date
 const getTime = (millsecondsTime) => new Date(millsecondsTime).toTimeString().slice(0, 5);
 const getDate = (millsecondsTime) => new Date(millsecondsTime).toLocaleDateString();
