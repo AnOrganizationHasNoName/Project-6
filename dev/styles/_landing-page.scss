@@ -17,11 +17,12 @@ body{
 h1{
     font-size: $h1Size;
     color: $h1Color;
-}
+}   
 h2{
     font-size: $h2Size;
     color: $h2Color;
 }
+
 .wrapper{
     text-align: center;
 }
@@ -38,32 +39,28 @@ h2{
     margin: 0 auto;
     width: 100%;
     select, input, button {
-        width: 32%;
-        margin: 0.5%;
+        width: 31%;
+        margin: 0 0.5%;
         border-radius: 5px;
     }
     input {
         text-transform: uppercase;
         font-size: 1em;
         margin:10px;
-        border-radius: 5px;
         border: none;
         padding: 11px;
     }
     select{
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    padding: 22px;
-    background: white;
-    width: 30%px;
-    height: 60px;
-    border-radius: 0;
-    border: none;
-    }
+        font-family: 'Lato', sans-serif;
+        background: white;
+        border-radius: 0;
+        border: none;
+        padding: 10px;
+        }
 }
 
 .landingButton{
-    padding: 20px 60px;
+    padding: 11px;
     text-align: center;
     text-decoration: none;
     background-color: #f49e4c;

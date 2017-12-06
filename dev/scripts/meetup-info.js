@@ -7,7 +7,7 @@ export default class Meetups extends React.Component {
   }
   render() {
     return (
-      <div>
+      <div className="meetupContainer">
         <button className="homeBtn">
           <Link to="/" onClick={this.props.reset}>Return To Home</Link>
         </button>
@@ -18,15 +18,20 @@ export default class Meetups extends React.Component {
               <h2>{meetup.name}</h2>
               </div>
               <div className="meetupInfoCont">
-                <span>Venue: </span><p>{meetup.venue.name}, {meetup.venue.address_1}</p>
+                <span>Venue: </span><p>{meetup.venue.name}</p>
+                <span>Address: </span><p>{meetup.venue.address_1}</p>
                 <span>Meetup Time: </span><p>{getTime(meetup.time)}</p>
                 <span>Meetup Date: </span><p>{getDate(meetup.time)}</p>
               </div>
+              <div className="meetupLink">
               <button><a href={meetup.event_url}>Event Info</a></button>
+              </div>
+              <div className="meetupLink">
               <button
                 onClick={() => this.props.onClick(meetup.venue.lat, meetup.venue.lon)}>
                 <Link to="/restaurants">Find Restaurants</Link>
               </button>
+              </div>
             </li>
           })}
         </ul>

@@ -80,7 +80,7 @@ class LandingPage extends React.Component {
     }
     render() {
         return (
-            <div className="wrapper">
+            <div className="innerWrapper">
                 <TitleOnLandingPage />
                 <div className="landingInner">
                     <form action="" className="user-form" onSubmit={this.handleSubmit}>

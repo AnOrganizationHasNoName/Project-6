@@ -1,6 +1,6 @@
 @import "./colours";
 
-.wrapper{
+/* .wrapper{
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0)), url("../../assets/landing-pagebg.jpg") ;
     background-repeat: no-repeat;
     width: 100vw;
@@ -8,7 +8,7 @@
     background-position: center;
     background-size: cover;
     
-}
+} */
 
 .homeBtn{
     width: 15%;
@@ -32,32 +32,36 @@
     border: 5px solid $buttonBorder;
     width: calc(33.33% - 2%);
     display: block;
-    height: 500px;
+    height: 400px;
     float: left;
     font-family: $fontStack;
     margin: 0.5%;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    background: rgba(245, 239, 239, 0.993);
+/*     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)); */
        
         p{
             float: left;
-            clear: both;
             margin: 0;
             padding: 5px;
             font-size: 1.3em;
             text-align:left;
-        
-
+            display: block;
+            width: 60%;
         }
-        span{
+         span {
             float: left;
             clear: both;
-            font-size: 1.3em;
             padding: 5px;
-            color: $bodyColor;
-                }
+            color: #2d728f;
+            font-size: 1.6rem;
+            font-weight: bold;
+            float: left;
+            display: block;
+            width: 37%;
+            text-align: left;
+        }
         button{
-            width: 40%;
-            margin: 15px;
+            width: 90%;
             padding: 15px;
             border-radius: 30px;
             background-color: $buttonBorder;
@@ -70,6 +74,7 @@
             text-decoration: none;
             font-size: 1em;
             font-family: $fontStack;
+            padding: 0;
         }
 }
 
@@ -80,6 +85,7 @@
     width: 100%;
     margin-top: 5px;
     padding: 8px;
+    min-height: 180px;
 }
 .meetupHeader{
     height: 25%;
@@ -87,13 +93,23 @@
     text-overflow: ellipsis;
     margin-bottom: 5px;
         h2{
-        font-size: 1.5em;
         color: white;
         text-overflow: ellipsis;
         overflow: hidden;
-        white-space: nowrap;
+        white-space: wrap;
         text-align: center;
-        padding: 40px 10px;
+        padding: 20px 10px;
         margin: 0 auto;
         }
+}
+
+.meetupContainer {
+    overflow: auto;
+    height: 90vh;
+}
+
+.meetupLink {
+    width: 48%;
+    float: left;
+    margin: 0.5%;
 }
