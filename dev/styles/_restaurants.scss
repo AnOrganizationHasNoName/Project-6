@@ -1,50 +1,80 @@
-/* .restaurants {
-    .restaurant {
-        @include tile;
-    }
-} */
 
-.resOuter{
-    border: 2px solid white;
-}
-.restaurants {
-    li {
-        width: 48%;
-        float: left;
-        min-height: 135px;
-        max-height: 175px;
-        background: white;
-        margin: 0.5%;
-    }
-}
-
-.restaurants{
-    border: 2px dotted red;
-}
-
-.restaurant {
-    border: 2px solid cyan;
-}
-
-.resHead {
-    border: 2px solid blue;
-}
-.resMainTitle{
-    border: 2px solid lightblue;
-}
 
 .resInfo{
-    border: 2px solid royalblue;
+    border: 6px solid $buttonColor;
+    list-style: none;
+    display: block;
+    float: left;
+    width: calc(25% - 16px);
+    height: 450px;
+    margin: 4px;
+    border-radius: 15px;
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    background-attachment: fixed; 
+       
+        p{
+            float: left;
+            clear: both;
+            margin: 0;
+            padding: 5px;
+            font-size: 1.3em;
+            text-align:left;
+            letter-spacing: 1px;
+        
+
+        }
+        span{
+            float: left;
+            clear: both;
+            font-size: 1.3em;
+            padding: 5px;
+            color: $bodyColor;
+                }
+        button{
+            width: 40%;
+            margin: 15px;
+            padding: 15px;
+            border-radius: 30px;
+            background-color: $buttonBorder;
+            border:none;
+            font-family: $fontStack;
+            color: white;
+            letter-spacing: 1px;
+                
+        }
+
+        a {
+            text-decoration: none;
+            font-size: 1em;
+            font-family: $fontStack;
+            color: white;
+            letter-spacing: 1px;
+        } 
 }
 
-.resTagsTitle{
-    border: 2px solid purple;
+.resInfoCont{
+    display: block;
+    width: 100%;
+    height: 55%;
+    padding: 10px;
 }
 
-.resLinks{
-    border: 2px solid pink;
-}
+.resHeader{
+    height: 25%;
+    background: $buttonBorder;
+    text-overflow: ellipsis;
+    margin-bottom: 5px;
+    border-radius: 10px 10px 0 0px;
 
-.resDirection{
-    border: 2px solid magenta;
+        h2{
+        letter-spacing: 1.5px;
+        font-size: 1.5em;
+        color: white;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: center;
+        padding: 40px 10px;
+        margin: 0 auto;
+        }
 }
