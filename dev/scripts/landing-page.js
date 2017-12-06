@@ -50,7 +50,7 @@ class LandingPage extends React.Component {
             this.setState({
                 lat: latitude,
                 lon: longitude
-            }) 
+            })
         });
 
         // ajax request for meetup categories
@@ -80,7 +80,7 @@ class LandingPage extends React.Component {
     }
     render() {
         return (
-            <div className="wrapper">
+            <div className="innerWrapper">
                 <TitleOnLandingPage />
                 <div className="landingInner">
                     <form action="" className="user-form" onSubmit={this.handleSubmit}>
@@ -93,12 +93,13 @@ class LandingPage extends React.Component {
                             size="50"
                             placeholder="Enter a city"
                             name="locationInput"
+                            aria-label="enter your city here"
                             required
                         />
                         <button className="landingButton">Search</button>
                     </form>
                 </div>
-            </div>  
+            </div>
         )
     }
 }
