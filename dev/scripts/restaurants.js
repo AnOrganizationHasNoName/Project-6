@@ -12,9 +12,15 @@ class Restaurants extends React.Component {
                 <ul className="resCont">
                     {this.props.data.map(restaurant => {
                         return <li className="resInfo" key={restaurant.id}>
-                            <span>Address: </span><p>{restaurant.vicinity}</p>
-                            <span>Phone Number: </span><p>{restaurant.international_phone_number}</p>
-                            <span>Google Rating: </span><p>{restaurant.rating}/5</p>
+                            <div className="resHeader">
+                                <h2>{restaurant.name}</h2>
+                            </div>
+
+                            <div className="resInfoCont">
+                                <span>Address: </span><p>{restaurant.vicinity}</p>
+                                <span>Phone Number: </span><p>{restaurant.international_phone_number}</p>
+                                <span>Google Rating: </span><p>{restaurant.rating}/5</p>
+                            </div>
 
                             <button><a href={restaurant.website}>Website</a></button>
                             <button><a href={restaurant.url}>Directions</a></button>
