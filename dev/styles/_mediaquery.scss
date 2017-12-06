@@ -1,3 +1,12 @@
+@media only screen and (max-width: 1068px) {
+    // restaurants
+    .resInfo {
+        width: calc(33.33% - 16px);
+    }
+
+   }
+
+
 @media only screen and (max-width: 948px) {
     // mmetups page
     h2 {
@@ -10,6 +19,13 @@
 
     .meetup {
         width: calc(47% - 2%);
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    // restaurants
+    .resInfo {
+        width: calc(48.33% - 16px);
     }
 }
 
@@ -45,6 +61,17 @@
 
     ul {
         padding: 0;
+    }
+
+    // restaurant
+    .resInfo {
+        width: 95%;
+        float: none;
+        display: block;
+    }
+
+    .resInfoCont {
+        min-height: 145px;
     }
 }
 
@@ -98,6 +125,17 @@
         min-height: 142px;
     }
 
+    // restaurant
+    
+    .resHeader {
+        h2 {
+            font-size: 2.1rem;
+        }
+    }
+
+    .resInfo {
+        height: 295px;
+    }
 }
 
 @media only screen and (max-width: 370px) {
