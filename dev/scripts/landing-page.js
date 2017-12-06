@@ -93,6 +93,7 @@ class LandingPage extends React.Component {
                             size="50"
                             placeholder="Enter a city"
                             name="locationInput"
+                            aria-label="enter your city here"
                             required
                         />
                         <button className="landingButton">Search</button>
