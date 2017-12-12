@@ -1,69 +1,70 @@
 @import "./colours";
 
-.wrapper{
+/* .wrapper{
     background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(0, 0, 0, 0)), url("../../assets/landing-pagebg.jpg") ;
     background-repeat: no-repeat;
     width: 100vw;
     height: 100vh;
     background-position: center;
     background-size: cover;
-    padding: 1px;
-    background-attachment: fixed;
     
-}
+} */
 
 .homeBtn{
     width: 15%;
     margin: 15px;
-    padding: 15px;
+    height: 40px;
     border-radius: 30px;
     background-color: #f49e4c;
     border: none;
     font-family: "Lato", sans-serif;
-
+    padding: 0;
         a{
             font-family: $fontStack;
             font-size: 1em;
             text-decoration: none;
             text-align: center;
             color: white;
-            letter-spacing: 1.3px;
+            padding: 0;
         }
 }
 
 
 .meetup{
-    border: 6px solid $buttonBorder;
+    border: 5px solid $buttonBorder;
     width: calc(33.33% - 2%);
     display: block;
-    height: 500px;
+    height: 400px;
     float: left;
     font-family: $fontStack;
     margin: 0.5%;
-    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
-    border-radius: 15px;
+    background: rgba(245, 239, 239, 0.993);
+/*     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)); */
        
         p{
             float: left;
-            clear: both;
             margin: 0;
             padding: 5px;
             font-size: 1.3em;
             text-align:left;
-        
-
+            display: block;
+            width: 60%;
         }
-        span{
+         span {
             float: left;
             clear: both;
-            font-size: 1.3em;
             padding: 5px;
-            color: $bodyColor;
-                }
-        button{
-            width: 40%;
-            margin: 15px;
-            padding: 15px;
+            color: #2d728f;
+            font-size: 1.6rem;
+            font-weight: bold;
+            float: left;
+            display: block;
+            width: 37%;
+            text-align: left;
+        }
+        button {
+            width: 90%;
+            height: 40px;
             border-radius: 30px;
             background-color: $buttonBorder;
             border:none;
@@ -75,8 +76,7 @@
             text-decoration: none;
             font-size: 1em;
             font-family: $fontStack;
-            color: white;
-            letter-spacing: 1px;
+            padding: 0;
         }
 }
 
@@ -87,22 +87,31 @@
     width: 100%;
     margin-top: 5px;
     padding: 8px;
-    height: 55%;
+    min-height: 180px;
 }
 .meetupHeader{
     height: 25%;
     background: $buttonColor;
     text-overflow: ellipsis;
     margin-bottom: 5px;
-    border-radius: 10px 10px 0 0;
         h2{
-        font-size: 1.5em;
         color: white;
         text-overflow: ellipsis;
         overflow: hidden;
-        white-space: nowrap;
+        white-space: wrap;
         text-align: center;
-        padding: 40px 10px;
+        padding: 20px 10px;
         margin: 0 auto;
         }
+}
+
+.meetupContainer {
+    overflow: auto;
+    height: 90vh;
+}
+
+.meetupLink {
+    width: 48%;
+    float: left;
+    margin: 0.5%;
 }

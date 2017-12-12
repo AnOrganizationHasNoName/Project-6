@@ -12,3 +12,6 @@ const LoadingSpinner = () => (
 );
 
 export default LoadingSpinner;
+
+// Credits:
+// HTML provided by: jczimm; https://codepen.io/jczimm/pen/vEBpoL

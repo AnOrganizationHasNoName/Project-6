@@ -1,0 +1,156 @@
+@media only screen and (max-width: 1068px) {
+    // restaurants
+    .resInfo {
+        width: calc(33.33% - 16px);
+    }
+
+   }
+
+
+@media only screen and (max-width: 948px) {
+    // mmetups page
+    h2 {
+        font-size: 1.6rem;
+    }
+
+    .meetupInfoCont {
+        min-height: 200px;
+    }
+
+    .meetup {
+        width: calc(47% - 2%);
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    // restaurants
+    .resInfo {
+        width: calc(48.33% - 16px);
+    }
+}
+
+@media only screen and (max-width: 760px) {
+    // landing page
+    .user-form {
+        input, select, button {
+            display: block;
+            width: 100%;
+            margin: 5px 0;
+        }
+    }
+
+    .homeBtn {
+        width: 22%;
+        a {
+            padding: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+   // meetups page
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    .meetup {
+        span, p {
+            font-size: 1.3rem;
+        }
+    }
+
+    ul {
+        padding: 0;
+    }
+
+    // restaurant
+    .resInfo {
+        width: 95%;
+        float: none;
+        display: block;
+    }
+
+    .resInfoCont {
+        min-height: 145px;
+    }
+}
+
+@media only screen and (max-width: 565px) {
+    // landing page
+    h1 {
+        font-size: 4rem;
+    }
+
+    // meetups page
+        .homeBtn {
+        width: 26%;
+        a {
+            padding: 0;
+        }
+    }
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        .meetup {
+            span, p {
+                font-size: 1.2rem;
+            }
+        }
+}
+
+@media only screen and (max-width: 470px) {
+    // meetups page
+        .homeBtn {
+        width: 32%;
+        a {
+            padding: 0;
+        }
+    }
+
+    .meetupHeader {
+        h2 {
+            padding: 11px 10px;
+        }
+    }
+
+    .meetup {
+        display: block;
+        float: none;
+        width: 90%;
+        height: 275px;
+    }
+
+    .meetupInfoCont {
+        min-height: 142px;
+    }
+
+    // restaurant
+    
+    .resHeader {
+        h2 {
+            font-size: 2.1rem;
+        }
+    }
+
+    .resInfo {
+        height: 295px;
+    }
+}
+
+@media only screen and (max-width: 370px) {
+    // meetups page
+        .homeBtn {
+        width: 38%;
+        a {
+            padding: 0;
+        }
+    }
+}
+
+@media only screen and (max-width: 330px) {
+    // meetups page
+    .homeBtn {
+        width: 50%;
+    }
+}
