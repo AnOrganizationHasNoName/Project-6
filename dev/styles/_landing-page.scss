@@ -38,10 +38,13 @@ h2{
 .user-form {
     margin: 0 auto;
     width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     select, input, button {
         width: 31%;
         margin: 0 0.5%;
-        border-radius: 5px;
+        border-radius: 4px;
     }
     input {
         text-transform: uppercase;
@@ -55,7 +58,8 @@ h2{
         background: white;
         border-radius: 0;
         border: none;
-        padding: 10px;
+        //padding: 10px;
+        height: 34px;
         }
 }
 
